@@ -1,8 +1,17 @@
 const express = require('express');
 const helmet = require('helmet');
-// morgan gives more info
 const morgan = require('morgan');
 const port = 8000;
+// const createNewTrip = require('./handlers/createNewTrip');
+const verifyUser = require('./handlers/verifyUser');
+const createBoard = require('./handlers/createBoard');
+const updateBoard = require('./handlers/updateBoard');
+const completeBoard = require('./handlers/completeBoard');
+const getTripDetails = require('./handlers/getTripDetails');
+const getCurrentTrips = require('./handlers/getCurrentTrip');
+const uploadImage = require('./handlers/uploadImage');
+const updateActivity = require('./handlers/updateActivity');
+const getPastTrips = require('./handlers/getPastTrips');
 
 express()
   //allows server to auto parse the req.body
@@ -11,9 +20,18 @@ express()
   .use(helmet())
   .use(morgan('tiny'))
 
-  .get('/hello', (req, res) => {
-    res.status(200).json({ status: 200, message: 'Wassup' });
-  })
+  //POST
+  .post('/api/uploadImage', uploadImage)
+  .post('/api/verify-user', verifyUser)
+  .post('/api/create-board', createBoard)
+  //PATCH
+  .patch('/api/update-activity', updateActivity)
+  .patch('/api/update-board', updateBoard)
+  .patch('/api/complete-board', completeBoard)
+  //GET
+  .get('/api/detail/:_id', getTripDetails)
+  .get('/api/currentTrips/:_id', getCurrentTrips)
+  .get('/api/pastTrips/:_id', getPastTrips)
 
   .listen(port, () => {
     console.log(`Example app listening on port ${port}`);
