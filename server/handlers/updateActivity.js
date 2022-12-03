@@ -25,7 +25,7 @@ const updateActivity = async (req, res) => {
       { _id: tripId },
       {
         $set: {
-          [`tasks.${id}`]: { content, title, duration, activity, cost },
+          [`tasks.${id}`]: { id, content, title, duration, activity, cost },
         },
       }
     );
@@ -41,27 +41,19 @@ const updateActivity = async (req, res) => {
       return mappedData.slice(1);
     };
     const arrayOfDays = mapBoardData(boardObj);
-
-    const updateArrayofDays = await db.collection('CreateTrip').updateOne(
-      { _id: tripId, arrayOfDays: { $elemMatch: { [id]: id } } },
-      {
-        $set: {
-          [`arrayOfDays.$.${id}`]: { title, duration, activity, cost },
-        },
-      }
-    );
-    console.log(update);
-    console.log(updateArrayofDays);
-    if (update.modifiedCount > 0 && updateArrayofDays.modifiedCount > 0) {
+    // console.log(boardObj);
+    if (update.modifiedCount > 0) {
       res.status(200).json({
         status: 200,
-        message: 'Trip has been modified',
-        data: arrayOfDays,
+        message: 'Data Updated',
+        data: { ...boardObj, arrayOfDays },
       });
     } else {
-      res
-        .status(400)
-        .json({ status: 400, message: 'No changes made', data: arrayOfDays });
+      res.status(400).json({
+        status: 400,
+        message: 'No changes made',
+        data: { ...boardObj, arrayOfDays },
+      });
     }
   } catch (err) {
     res.status(500).json({ status: 500, message: 'Something went wrong' });

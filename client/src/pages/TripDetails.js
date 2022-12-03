@@ -5,15 +5,12 @@ import { NavLink } from 'react-router-dom';
 import styled from 'styled-components';
 import UploadWidget from '../components/UploadWidget';
 import { Cloudinary } from '@cloudinary/url-gen';
-import { AdvancedImage } from '@cloudinary/react';
-import { fill } from '@cloudinary/url-gen/actions/resize';
 import Day from '../components/Day';
 
 const TripDetails = () => {
-  const { tripDetails, setTripDetails } = useContext(StateContext);
-
+  const { dayDetails, setDayDetails, tripDetails, setTripDetails } =
+    useContext(StateContext);
   const { _id } = useParams();
-
   const cld = new Cloudinary({
     cloud: {
       cloudName: 'curatedtrips',
@@ -25,49 +22,51 @@ const TripDetails = () => {
       const res = await fetch(`/api/detail/${_id}`);
       const json = await res.json();
       setTripDetails(json.data);
+      setDayDetails(json.data.arrayOfDays);
       console.log(json.data);
     };
     fetchHandler();
-  }, [_id, setTripDetails]);
+  }, [_id]);
 
   return (
     <StyledContainer>
       {tripDetails && (
-        <div>
-          <StyledHead>{tripDetails.title}</StyledHead>
-          <StyledDuration>Duration: {tripDetails.days} Day(s)</StyledDuration>
+        <>
+          <div>
+            <StyledHead>{tripDetails.title}</StyledHead>
+            <StyledDuration>Duration: {tripDetails.days} Day(s)</StyledDuration>
+            <StyledGallery>Image Gallery</StyledGallery>
+            <TripGallery>
+              {tripDetails && tripDetails.images === 0 ? (
+                <StyledNoImg>*Currently No Images*</StyledNoImg>
+              ) : (
+                tripDetails.images &&
+                tripDetails.images.map((image) => {
+                  console.log(image);
+                  return <StyledImage key={image} src={image} />;
+                })
+              )}
+              <StyledWidgetContainer>
+                <UploadWidget />
+              </StyledWidgetContainer>{' '}
+            </TripGallery>
+            <StyledDayContainer>
+              {dayDetails.map((day, index) => {
+                return <Day day={day} index={index} />;
+              })}
+            </StyledDayContainer>
+          </div>
 
-          <StyledDayContainer>
-            {tripDetails.arrayOfDays.map((day, index) => {
-              // console.log(day);
-              return <Day day={day} index={index} />;
-            })}
-          </StyledDayContainer>
-        </div>
+          {/* //If there are images in array, display them. */}
+
+          <StyledBtnContainer>
+            <Navlink to={`/archived`}>
+              <StyledEndBtn>End Adventure</StyledEndBtn>
+            </Navlink>
+            <StyledNote>*Trip will be saved in Archived</StyledNote>
+          </StyledBtnContainer>
+        </>
       )}
-      <StyledWidgetContainer>
-        <UploadWidget />
-      </StyledWidgetContainer>
-      <StyledGallery>Image Gallery</StyledGallery>
-      {/* //If there are images in array, display them. */}
-      <TripGallery>
-        {tripDetails && tripDetails.images === 0 ? (
-          <StyledNoImg>*Currently No Images*</StyledNoImg>
-        ) : (
-          tripDetails &&
-          tripDetails.images.map((image) => {
-            console.log(image);
-            return <StyledImage key={image.img} src={image} />;
-          })
-        )}
-      </TripGallery>
-
-      <StyledBtnContainer>
-        <Navlink to={`/archived`}>
-          <StyledEndBtn>End Adventure</StyledEndBtn>
-        </Navlink>
-        <StyledNote>*Trip will be saved in Archived</StyledNote>
-      </StyledBtnContainer>
     </StyledContainer>
   );
 };

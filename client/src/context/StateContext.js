@@ -21,8 +21,9 @@ const Provider = ({ children }) => {
     user: 'loading',
     board: 'loading',
   });
-  const [image, setImage] = useState('');
+  const [image, setImage] = useState([]);
   const [tripDetails, setTripDetails] = useState(null);
+  const [dayDetails, setDayDetails] = useState(null);
   return (
     <StateContext.Provider
       value={{
@@ -46,6 +47,8 @@ const Provider = ({ children }) => {
         setImage,
         tripDetails,
         setTripDetails,
+        dayDetails,
+        setDayDetails,
       }}
     >
       {children}

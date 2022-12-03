@@ -45,7 +45,8 @@ const CreateForm = () => {
   );
 };
 const StyledContainer = styled.div`
-  border: 2px solid orange;
+  margin-top: 15px;
+  border: 2px solid purple;
   /* height: 100%; */
   display: flex;
   justify-content: center;

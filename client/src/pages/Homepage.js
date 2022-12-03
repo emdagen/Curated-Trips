@@ -4,6 +4,8 @@ import UserAccount from '../components/UserAccount';
 import BeautifulDnD from '../beautifulDnd/BeautifulDnD';
 import { useEffect, useContext } from 'react';
 import { StateContext } from '../context/StateContext';
+import SwiperSlides from '../components/SwiperSlide';
+
 const Homepage = () => {
   const {
     boardData,
@@ -47,13 +49,14 @@ const Homepage = () => {
   return (
     <StyledContainer>
       <StyledMain>
-        <div>
-          <p>Travel Image Slide Show</p>
-        </div>
         {loadingObj.board != 'loading' && boardData ? (
           <BeautifulDnD />
         ) : (
-          loadingObj.board === 'checked' && <CreateForm />
+          loadingObj.board === 'checked' && (
+            <StyledHome>
+              <SwiperSlides /> <CreateForm />
+            </StyledHome>
+          )
         )}
       </StyledMain>
     </StyledContainer>
@@ -78,7 +81,5 @@ const StyledMain = styled.div`
   min-height: 100%;
   border: 3px solid orange;
 `;
-// const StyledTitle = styled.h2`
-//   text-align: center;
-// `;
+const StyledHome = styled.div``;
 export default Homepage;

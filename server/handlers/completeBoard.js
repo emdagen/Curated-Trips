@@ -22,7 +22,7 @@ const completeBoard = async (req, res) => {
       {
         $set: {
           completed: req.body.completed,
-          arrayOfDays: req.body.arrayOfDays,
+          // arrayOfDays: req.body.arrayOfDays,
         },
       },
       {

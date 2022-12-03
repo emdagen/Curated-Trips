@@ -39,7 +39,7 @@ const BeautifulDnD = () => {
         body: JSON.stringify({
           email: boardData.email,
           _id: boardData._id,
-          arrayOfDays,
+          // arrayOfDays,
           completed: true,
         }),
         headers: {

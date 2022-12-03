@@ -10,28 +10,38 @@ const options = {
 };
 
 const getTripDetails = async (req, res) => {
-  // console.log('hello you');
   const client = new MongoClient(MONGO_URI, options);
   try {
     await client.connect();
-    // console.log('hello');
+
     const db = client.db('FinalProject');
     const { _id } = req.params;
 
     const tripCollection = db.collection('CreateTrip');
     const trip = await tripCollection.findOne({ _id });
-    // console.log(trip);
+    const mapBoardData = (boardObj) => {
+      const mappedData = boardObj.columnOrder.map((columnId, index) => {
+        //columnId
+        const column = boardObj.columns[columnId];
+        //array of task objects
+        const tasks = column.taskIds.map((taskId) => boardObj.tasks[taskId]);
+        return tasks;
+      });
+      return mappedData.slice(1);
+    };
+    const arrayOfDays = mapBoardData(trip);
+    console.log(trip);
     if (trip) {
       res.status(201).json({
         status: 201,
         message: 'We got it!!!',
-        data: trip,
+        data: { ...trip, arrayOfDays },
       });
     } else {
       res.status(400).json({
         status: 400,
         message: "Couldn't find the trip",
-        data: trip,
+        data: { ...trip, arrayOfDays },
       });
     }
   } catch (err) {

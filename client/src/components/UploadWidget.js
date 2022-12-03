@@ -7,7 +7,7 @@ const UploadWidget = ({ index }) => {
   const cloudinaryRef = useRef();
   const widgetRef = useRef();
   const { _id } = useParams();
-  const { userData } = useContext(StateContext);
+  const { userData, setUpdateTripDetails } = useContext(StateContext);
   const [toggle, setToggle] = useState(false);
 
   useEffect(() => {
@@ -45,6 +45,7 @@ const UploadWidget = ({ index }) => {
                 },
               });
               const json = await res.json();
+              setUpdateTripDetails(true);
               console.log(json);
             } catch (err) {
               console.log(err);

@@ -1,10 +1,8 @@
 import { useState } from 'react';
 import styled from 'styled-components';
 import ActivityType from './ActivityType';
-import UploadWidget from './UploadWidget';
 
 const Day = ({ day, index }) => {
-  // console.log(day);
   return (
     <StyledDay key={day.id}>
       <StyledTop>

@@ -6,13 +6,14 @@ import { useParams } from 'react-router';
 const ActivityType = ({ activity, dayId }) => {
   const [formData, setFormData] = useState(activity);
   const [toggleForm, setToggleForm] = useState(false);
-  const { userData, tripDetails, setTripDetails } = useContext(StateContext);
+  const { userData, tripDetails, setTripDetails, setDayDetails } =
+    useContext(StateContext);
   const { _id } = useParams();
 
   // console.log(activity);
   const updateActivity = async (e) => {
     e.preventDefault();
-    console.log(formData);
+    console.log(activity);
     try {
       const res = await fetch('/api/update-activity', {
         method: 'PATCH',
@@ -30,7 +31,8 @@ const ActivityType = ({ activity, dayId }) => {
       const json = await res.json();
       console.log(json);
       if (json.status <= 300) {
-        setTripDetails(json.data);
+        // setTripDetails(json.data);
+        setDayDetails(json.data.arrayOfDays);
         console.log('update successful');
       } else {
         console.log('update failed');
@@ -115,6 +117,13 @@ const ActivityType = ({ activity, dayId }) => {
 
           <StyledBtnContainer>
             <StyledBtn type='submit'>Save Changes</StyledBtn>
+            <StyledBtn
+              onClick={() => {
+                setToggleForm(!toggleForm);
+              }}
+            >
+              Edit
+            </StyledBtn>
           </StyledBtnContainer>
         </StyledForm>
       )}
