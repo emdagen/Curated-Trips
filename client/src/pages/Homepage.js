@@ -1,10 +1,10 @@
 import styled from 'styled-components';
-import CreateForm from '../components/CreateForm';
-import UserAccount from '../components/UserAccount';
-import BeautifulDnD from '../beautifulDnd/BeautifulDnD';
 import { useEffect, useContext } from 'react';
 import { StateContext } from '../context/StateContext';
+
 import SwiperSlides from '../components/SwiperSlide';
+import CreateForm from '../components/CreateForm';
+import BeautifulDnD from '../beautifulDnd/BeautifulDnD';
 
 const Homepage = () => {
   const {
@@ -44,7 +44,6 @@ const Homepage = () => {
     };
     createBoardData();
   }, [formData]);
-  //come back for me
 
   return (
     <StyledContainer>
@@ -54,7 +53,8 @@ const Homepage = () => {
         ) : (
           loadingObj.board === 'checked' && (
             <StyledHome>
-              <SwiperSlides /> <CreateForm />
+              <CreateForm />
+              <SwiperSlides />
             </StyledHome>
           )
         )}
@@ -71,7 +71,8 @@ const StyledContainer = styled.div`
   direction: ltr;
   display: flex;
   justify-content: flex-start;
-  background-color: #72a0c1;
+  background-color: black;
+  /* border: 3px solid orange; */
 `;
 const StyledMain = styled.div`
   display: flex;
@@ -79,7 +80,9 @@ const StyledMain = styled.div`
   justify-content: space-evenly;
   width: 100%;
   min-height: 100%;
-  border: 3px solid orange;
+  /* border: 3px solid orange; */
 `;
-const StyledHome = styled.div``;
+const StyledHome = styled.div`
+  /* display: flex; */
+`;
 export default Homepage;

@@ -13,19 +13,23 @@ const { MONGO_URI } = process.env;
 const uploadImage = async (req, res) => {
   const client = new MongoClient(MONGO_URI, options);
   const { _id, image } = req.body;
-  console.log(req.body);
+  // console.log(req.body);
+
   try {
     await client.connect();
     const db = client.db('FinalProject');
     const tripPlan = await db
       .collection('CreateTrip')
       .updateOne({ _id }, { $push: { images: image } }, { upsert: true });
+
     const imageArray = await db.collection('CreateTrip').findOne({ _id });
-    console.log(tripPlan);
+    // console.log(tripPlan);
     res.status(200).json({ status: 200, data: imageArray.images });
   } catch (err) {
     console.error('Something went wrong', err);
   }
+
+  client.close();
 };
 
 module.exports = uploadImage;

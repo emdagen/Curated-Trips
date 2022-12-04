@@ -7,8 +7,7 @@ const UploadWidget = ({ index }) => {
   const cloudinaryRef = useRef();
   const widgetRef = useRef();
   const { _id } = useParams();
-  const { userData, setUpdateTripDetails, setImageArray } =
-    useContext(StateContext);
+  const { userData, setImageArray } = useContext(StateContext);
   const [toggle, setToggle] = useState(false);
 
   useEffect(() => {
@@ -30,7 +29,7 @@ const UploadWidget = ({ index }) => {
       function (error, result) {
         if (!error && result && result.event === 'success') {
           // console.log(result);
-
+          //POST that sends img url/data to backend
           const uploadImg = async () => {
             // console.log('hello');
             try {
@@ -70,5 +69,24 @@ const UploadWidget = ({ index }) => {
   );
 };
 
-const StyledUploadBtn = styled.button``;
+const StyledUploadBtn = styled.button`
+  display: inline-block;
+  padding: 0.35em 1.2em;
+  border: 0.2em solid #d6ccc2;
+  border-radius: 0.12em;
+  box-sizing: border-box;
+  text-decoration: none;
+  color: #d6ccc2;
+  text-align: center;
+  transition: all 0.2s;
+  font-weight: 600;
+  font-size: 15px;
+  box-shadow: rgba(0, 0, 0, 0.24) 0px 3px 8px;
+  :hover {
+    color: #000000;
+    background-color: #ffffff;
+  }
+  width: 100px;
+  height: 60px;
+`;
 export default UploadWidget;

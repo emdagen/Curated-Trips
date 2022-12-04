@@ -2,6 +2,7 @@ import styled from 'styled-components';
 import { useContext, useState } from 'react';
 import { StateContext } from '../context/StateContext';
 import { useParams } from 'react-router';
+
 import AddComment from './AddComment';
 
 const ActivityType = ({ activity, dayId }) => {
@@ -9,9 +10,10 @@ const ActivityType = ({ activity, dayId }) => {
   const [toggleForm, setToggleForm] = useState(false);
   const { userData, tripDetails, setTripDetails, setDayDetails } =
     useContext(StateContext);
+
   const { _id } = useParams();
 
-  // console.log(activity);
+  // PATCH that allows user to edit activities in existing trip //
   const updateActivity = async (e) => {
     e.preventDefault();
     console.log(activity);
@@ -32,7 +34,6 @@ const ActivityType = ({ activity, dayId }) => {
       const json = await res.json();
       console.log(json);
       if (json.status <= 300) {
-        // setTripDetails(json.data);
         setDayDetails(json.data.arrayOfDays);
         console.log('update successful');
       } else {
@@ -106,7 +107,7 @@ const ActivityType = ({ activity, dayId }) => {
           />
 
           <StyledBtnContainer>
-            <StyledBtn type='submit'>Save Changes</StyledBtn>
+            <StyledBtn type='submit'>Save Change</StyledBtn>
             <StyledBtn
               onClick={() => {
                 setToggleForm(!toggleForm);
@@ -117,7 +118,7 @@ const ActivityType = ({ activity, dayId }) => {
           </StyledBtnContainer>
         </StyledForm>
       )}
-      {/* //Moved this here from top // */}
+
       {!toggleForm && (
         <StyledEditBtnContainer>
           <StyledBtn
@@ -135,19 +136,37 @@ const ActivityType = ({ activity, dayId }) => {
 
 const StyledActivity = styled.div`
   /* padding-bottom: 15px; */
-  /* border: 2px solid red; */
+  border: 2px solid red;
   padding-left: 10px;
 `;
 
 const StyledBold = styled.span`
   font-weight: bold;
 `;
+
 const StyledBtn = styled.button`
-  width: 100px;
-  margin-bottom: 10px;
+  display: inline-block;
+  padding: 0.35em 1.2em;
+  border: 0.2em solid #d6ccc2;
+  border-radius: 0.12em;
+  box-sizing: border-box;
+  text-decoration: none;
+  color: #d6ccc2;
+  text-align: center;
+  transition: all 0.2s;
+  font-weight: 600;
+  font-size: 15px;
+  box-shadow: rgba(0, 0, 0, 0.24) 0px 3px 8px;
+  :hover {
+    color: #000000;
+    background-color: #ffffff;
+  }
+  margin-right: 5px;
+  margin-bottom: 5px;
 `;
+
 const StyledBtnContainer = styled.div`
-  /* border: 2px solid pink; */
+  border: 2px solid pink;
   /* display: flex;
   justify-content: center; */
   /* margin-left: 10px; */
@@ -156,13 +175,16 @@ const StyledBtnContainer = styled.div`
 const StyledForm = styled.form`
   margin-top: 10px;
   margin-left: 10px;
+  border: 2px solid blue;
   /* display: flex;
   flex-direction: column;
   justify-content: center;
   align-items: center; */
 `;
 const StyledEditBtnContainer = styled.div`
-  margin-left: 10px;
+  /* border: 2px solid orange; */
+  /* padding-left: 10px; */
+  /* margin-bottom: 5px; */
 `;
 
 export default ActivityType;

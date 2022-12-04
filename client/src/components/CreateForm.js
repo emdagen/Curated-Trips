@@ -1,6 +1,8 @@
 import styled from 'styled-components';
 import { useContext, useState } from 'react';
 import { StateContext } from '../context/StateContext';
+import { Keyframes } from 'styled-components';
+import { NavLink } from 'react-router-dom';
 
 const CreateForm = () => {
   const { setFormData, setBoardData, setUpdateDB, boardData } =
@@ -21,10 +23,15 @@ const CreateForm = () => {
 
   return (
     <StyledContainer>
+      <NavLink to={'/current'}>
+        <StyledCurrent>
+          <StyledLink>In Progress</StyledLink>
+        </StyledCurrent>
+      </NavLink>
       <StyledForm onSubmit={(e) => handleSubmit(e)}>
-        <h2>Start New Adventures</h2>
-        <StepOne>Step 1</StepOne>
-        <h3>Give your trip a name:</h3>
+        <StyledDescription>New Adventures</StyledDescription>
+        <StepOne>Start a new trip</StepOne>
+        <StyledDescription2>Name:</StyledDescription2>
         <Input
           type='text'
           onChange={(e) => setTitle(e.target.value)}
@@ -39,66 +46,133 @@ const CreateForm = () => {
           value={duration}
         />
 
-        <Submit type='submit'>Create New Trip</Submit>
+        <Submit type='submit'>Let's Build !</Submit>
       </StyledForm>
+      <NavLink to={'/archived'}>
+        <StyledPast>
+          <StyledLink>Past Trips</StyledLink>
+        </StyledPast>
+      </NavLink>
     </StyledContainer>
   );
 };
 const StyledContainer = styled.div`
-  margin-top: 15px;
-  border: 2px solid purple;
-  /* height: 100%; */
+  margin-bottom: 15px;
+  /* border: 2px solid purple; */
+  height: 600px;
   display: flex;
-  justify-content: center;
+  justify-content: space-around;
   align-items: center;
-  background-color: #72a0c1;
+  background-color: #8ec5fc;
+  background-image: linear-gradient(
+    62deg,
+    #8ec5fc 7%,
+    #d0d1c9 39%,
+    #e8e1e1 74%
+  );
+  background-size: 400% 400%;
+  animation: gradient 15s ease infinite;
+  @keyframes gradient {
+    0% {
+      background-position: 0% 50%;
+    }
+    50% {
+      background-position: 100% 50%;
+    }
+    100% {
+      background-position: 0% 50%;
+    }
+  }
 `;
+
 const StyledForm = styled.form`
+  height: 550px;
+  width: 500px;
+  border: 2px solid white;
+  border-radius: 10px;
   display: flex;
   flex-direction: column;
+  justify-content: center;
   gap: 10px;
-  padding: 80px;
-  background-image: url('https://images.unsplash.com/photo-1514162005038-8332a12a5c9c?ixlib=rb-4.0.3&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=1074&q=80');
+  padding: 100px;
+  background-color: #d6ccc2;
+  box-shadow: rgba(50, 50, 93, 0.25) 0px 13px 27px -5px,
+    rgba(0, 0, 0, 0.3) 0px 8px 16px -8px;
+`;
+
+const Input = styled.input`
+  height: 50px;
+  font-size: 20px;
+  /* border-radius: 10px; */
+`;
+
+const StepOne = styled.h3`
+  text-align: center;
+  font-size: 20px;
+`;
+
+const Submit = styled.button`
+  margin-top: 15px;
+  text-decoration: none;
+  height: 50px;
+  display: inline-block;
+  padding: 0.35em 1.2em;
+  border: 0.2em solid #d6ccc2;
+
+  border-radius: 0.12em;
+  box-sizing: border-box;
+  text-decoration: none;
+  color: #d6ccc2;
+  text-align: center;
+  transition: all 0.2s;
+  font-weight: 600;
+  font-size: 20px;
+  box-shadow: rgba(0, 0, 0, 0.24) 0px 3px 8px;
+  :hover {
+    color: #000000;
+    background-color: #ffffff;
+  }
+`;
+
+const StyledDescription = styled.h2`
+  text-align: center;
+  font-size: 30px;
+`;
+
+const StyledDescription2 = styled.h3`
+  /* margin-top: 30px; */
+`;
+
+const StyledCurrent = styled.div`
+  height: 550px;
+  width: 500px;
+  border-radius: 10px;
+  background-image: url('https://images.unsplash.com/photo-1496950866446-3253e1470e8e?ixlib=rb-4.0.3&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=1740&q=80');
   background-repeat: no-repeat;
   background-size: cover;
 `;
-const Input = styled.input`
-  height: 30px;
-  border-radius: 10px;
-`;
-const StepOne = styled.h3`
-  text-align: center;
-`;
-const Submit = styled.button`
-  text-decoration: none;
-  height: 30px;
-  border-radius: 10px;
-  border: 1px solid rgb(146, 148, 248);
-  position: relative;
-  overflow: hidden;
-  background-color: #005a9c;
-  color: white;
 
-  :hover {
-    box-shadow: 1px 1px 25px 10px rgba(146, 148, 248, 0.4);
-  }
-  :before {
-    content: '';
-    position: absolute;
-    top: 0;
-    left: -100%;
-    width: 100%;
-    height: 100%;
-    background: linear-gradient(
-      120deg,
-      transparent,
-      rgba(146, 148, 248, 0.4),
-      transparent
-    );
-    transition: all 650ms;
-  }
-  :hover:before {
-    left: 100%;
-  }
+const StyledPast = styled.div`
+  height: 550px;
+  width: 500px;
+  border-radius: 10px;
+  background-image: url('https://images.unsplash.com/photo-1583858665594-a83667519ac5?ixlib=rb-4.0.3&ixid=MnwxMjA3fDB8MHxzZWFyY2h8NDV8fGZlc3RpdmFsfGVufDB8MXwwfHw%3D&auto=format&fit=crop&w=500&q=60');
+  background-repeat: no-repeat;
+  background-size: cover;
 `;
+
+const StyledLink = styled.p`
+  height: 550px;
+  border-radius: 10px;
+  font-size: 30px;
+  font-weight: bold;
+  color: black;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  border: 2px solid white;
+  box-shadow: rgba(50, 50, 93, 0.25) 0px 13px 27px -5px,
+    rgba(0, 0, 0, 0.3) 0px 8px 16px -8px;
+`;
+
 export default CreateForm;

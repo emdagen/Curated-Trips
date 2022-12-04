@@ -21,6 +21,7 @@ const updateBoard = async (req, res) => {
 
   try {
     await client.connect();
+
     const db = client.db('FinalProject');
     const update = await db.collection('CreateTrip').updateOne(
       { email, _id },
@@ -41,8 +42,8 @@ const updateBoard = async (req, res) => {
   } catch (err) {
     res.status(500).json({ status: 500, message: 'Something went wrong' });
     console.log(err);
-    client.close();
   }
+  client.close();
 };
 
 module.exports = updateBoard;

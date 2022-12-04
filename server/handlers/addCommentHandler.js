@@ -61,7 +61,7 @@ const addCommentHandler = async (req, res) => {
   } catch (err) {
     res.status(500).json({ status: 500, message: 'Something went wrong' });
     console.log(err);
-    client.close();
   }
+  client.close();
 };
 module.exports = addCommentHandler;

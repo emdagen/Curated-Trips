@@ -34,7 +34,7 @@ const getCurrentTrips = async (req, res) => {
         email,
       };
     });
-    console.log(crucialData);
+    // console.log(crucialData);
     if (user) {
       res.status(201).json({
         status: 201,

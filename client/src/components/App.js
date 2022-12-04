@@ -8,7 +8,7 @@ import GlobalStyles from '../components/GlobalStyles';
 import Login from '../pages/Login';
 import Homepage from '../pages/Homepage';
 import Navbar from './Navbar';
-import UserAccount from './UserAccount';
+import UserAccount from '../pages/UserAccount';
 import PastTrips from '../pages/PastTrips';
 import CurrentTrip from '../pages/CurrentTrip';
 import TripDetails from '../pages/TripDetails';
@@ -48,7 +48,6 @@ const App = () => {
   return (
     <BrowserRouter>
       <GlobalStyles />
-      {/* <UploadWidget /> */}
       <StyledApp>
         {isAuthenticated && loadingObj.user === 'verify' ? (
           <>
@@ -77,6 +76,7 @@ const App = () => {
     </BrowserRouter>
   );
 };
+
 const StyledApp = styled.div`
   min-height: 100vh;
   /* border: 2px solid orange; */

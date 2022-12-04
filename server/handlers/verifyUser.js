@@ -15,7 +15,7 @@ const verifyUser = async (req, res) => {
   const client = new MongoClient(MONGO_URI, options);
   try {
     await client.connect();
-    // console.log(req.body);
+
     const db = client.db('FinalProject');
     const collection = db.collection('user');
     const { email } = req.body;

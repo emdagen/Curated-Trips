@@ -1,5 +1,6 @@
 import { useState, useContext } from 'react';
 import { useParams } from 'react-router-dom';
+import styled from 'styled-components';
 import { StateContext } from '../context/StateContext';
 const AddComment = ({
   day,
@@ -16,6 +17,7 @@ const AddComment = ({
   const handleSubmit = async (e) => {
     e.preventDefault();
     console.log(formData);
+    //POST that sends user comments //
 
     const addComment = async () => {
       try {
@@ -40,6 +42,7 @@ const AddComment = ({
     };
     addComment();
   };
+
   return (
     <div>
       {toggleForm && (
@@ -48,33 +51,56 @@ const AddComment = ({
             onChange={(e) =>
               setFormData({ ...formData, comment: e.target.value })
             }
-            rows='4'
-            cols='50'
+            rows='5'
+            cols='65'
             name='comment'
-            placeholder='Enter text here...'
+            placeholder='Add your tips & tricks here ...'
           ></textarea>
-          <button type='submit'>Post Comment</button>
+          <StyledAddComment type='submit'>Post Comment</StyledAddComment>
         </form>
       )}
 
-      <button
+      <StyledAddComment
         onClick={() => {
           setToggleForm(!toggleForm);
         }}
       >
         Add Comment
-      </button>
+      </StyledAddComment>
 
       {commentsArray && commentsArray.length !== 0 && (
-        <button
+        <StyledAddComment
           onClick={() => {
             setToggleShow(!toggleShow);
           }}
         >
-          Show Comment
-        </button>
+          Show Comment(s)
+        </StyledAddComment>
       )}
     </div>
   );
 };
+
+const StyledAddComment = styled.button`
+  display: inline-block;
+  padding: 0.35em 1.2em;
+  border: 0.2em solid #d6ccc2;
+  border-radius: 0.12em;
+  box-sizing: border-box;
+  text-decoration: none;
+  color: #d6ccc2;
+  text-align: center;
+  transition: all 0.2s;
+  font-weight: 600;
+  font-size: 15px;
+  box-shadow: rgba(0, 0, 0, 0.24) 0px 3px 8px;
+  :hover {
+    color: #000000;
+    background-color: #ffffff;
+  }
+  margin-top: 5px;
+  margin-right: 5px;
+  width: 120px;
+`;
+
 export default AddComment;

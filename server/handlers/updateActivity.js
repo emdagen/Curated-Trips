@@ -16,7 +16,7 @@ const client = new MongoClient(MONGO_URI, options);
 const updateActivity = async (req, res) => {
   const { email, tripId, id, content, title, duration, activity, cost } =
     req.body;
-  console.log(req.body);
+  // console.log(req.body);
   try {
     await client.connect();
     const db = client.db('FinalProject');
@@ -58,7 +58,7 @@ const updateActivity = async (req, res) => {
   } catch (err) {
     res.status(500).json({ status: 500, message: 'Something went wrong' });
     console.log(err);
-    client.close();
   }
+  client.close();
 };
 module.exports = updateActivity;

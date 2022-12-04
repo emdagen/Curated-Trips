@@ -13,6 +13,7 @@ const { MONGO_URI } = process.env;
 const removeComment = async (req, res) => {
   const client = new MongoClient(MONGO_URI, options);
   // console.log(req.body);
+
   const { columnId, tripId, id } = req.body;
   await client.connect();
   const db = client.db('FinalProject');
@@ -39,6 +40,7 @@ const removeComment = async (req, res) => {
       data: trip.comments,
     });
   }
+  client.close();
 };
 
 module.exports = removeComment;

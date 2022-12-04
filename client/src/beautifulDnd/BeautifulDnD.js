@@ -87,6 +87,7 @@ const StyledButton = styled.button`
   border-radius: 50%;
   background: linear-gradient(45deg, #587998, #4a6680);
 `;
+
 const StyledButtons = styled.div`
   display: flex;
   gap: 16px;
