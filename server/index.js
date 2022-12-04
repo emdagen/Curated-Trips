@@ -14,6 +14,8 @@ const updateActivity = require('./handlers/updateActivity');
 const getPastTrips = require('./handlers/getPastTrips');
 const addCommentHandler = require('./handlers/addCommentHandler');
 const removeComment = require('./handlers/removeComment');
+const endTrip = require('./handlers/endTrip');
+const getArchivedDetails = require('./handlers/getArchivedDetails');
 
 express()
   //allows server to auto parse the req.body
@@ -36,6 +38,10 @@ express()
   .get('/api/detail/:_id', getTripDetails)
   .get('/api/currentTrips/:_id', getCurrentTrips)
   .get('/api/pastTrips/:_id', getPastTrips)
+  .get('/api/archived-trip/:_id', getArchivedDetails)
+
+  //DELETE
+  .delete('/api/archive-trip/:_id', endTrip)
 
   .listen(port, () => {
     console.log(`Example app listening on port ${port}`);

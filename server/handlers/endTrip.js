@@ -14,51 +14,31 @@ const { MONGO_URI } = process.env;
 
 const endTrip = async (req, res) => {
   const client = new MongoClient(MONGO_URI, options);
-  const { email, days } = req.body;
+  const { _id } = req.params;
 
   try {
     await client.connect();
     const db = client.db('FinalProject');
 
-    let tripPlan = await db.collection('EndedTrip').findOne({ email });
+    const tripPlan = await db.collection('CreateTrip').findOne({ _id });
 
-    // if (!tripPlan) {
-    //   if (req.body.days) {
-    //     const dndObj = buildBoardColumns(days);
-    //     //create if doesnt exist
-    //     tripPlan = await db.collection('EndedTrip').insertOne({
-    //       ...req.body,
-    //       ...dndObj, //determine amount of columns
-    //       completed: false,
-    //       _id: uuidv4(),
-    //     });
+    const deleteTrip = await db.collection('CreateTrip').deleteOne({ _id });
+    console.log(deleteTrip);
 
-    //     //get new document that was just created
-    //     tripPlan = await db
-    //       .collection('EndedTrip')
-    //       .findOne({ _id: tripPlan.insertedId });
-
-    //     //send data to frontend
-    //     res.status(200).json({
-    //       status: 200,
-    //       message: 'Ended trip has been created',
-    //       data: tripPlan,
-    //     });
-    //   } else {
-    //     res.status(404).json({
-    //       status: 404,
-    //       message: 'Information is missing, can not end trip',
-    //       data: undefined,
-    //     });
-    //   }
-    // } else {
-    //   //send document that exists
-    //   res.status(400).json({
-    //     status: 400,
-    //     message: 'A trip is already in progress',
-    //     data: tripPlan,
-    //   });
-    // }
+    if (deleteTrip.deletedCount > 0) {
+      const archivedTrip = await db
+        .collection('ArchivedTrip')
+        .insertOne({ ...tripPlan, timestamp: Date() });
+      res.status(200).json({
+        status: 200,
+        message: 'Trip Archived',
+      });
+    } else {
+      res.status(400).json({
+        status: 400,
+        message: 'Unable to find trip',
+      });
+    }
   } catch (err) {
     res.status(500).json({ status: 500, message: 'Something went wrong' });
     console.log(err);

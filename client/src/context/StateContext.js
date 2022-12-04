@@ -9,7 +9,7 @@ const Provider = ({ children }) => {
   //Present Trip State (when user starts trip)
   const [currentTrips, setCurrentTrips] = useState();
   //Past Trip State (when user has ended the trip)
-  const [pastTrip, setPastTrip] = useState();
+  const [pastTrip, setPastTrip] = useState(null);
   // create adventure board
   const [formData, setFormData] = useState(null);
   //toggle to true to update database

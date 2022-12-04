@@ -12,6 +12,7 @@ import UserAccount from './UserAccount';
 import PastTrips from '../pages/PastTrips';
 import CurrentTrip from '../pages/CurrentTrip';
 import TripDetails from '../pages/TripDetails';
+import ArchivedDetails from '../pages/ArchivedDetails';
 
 //api, libraries
 import { useAuth0 } from '@auth0/auth0-react';
@@ -59,6 +60,7 @@ const App = () => {
                 <Route path='/archived' element={<PastTrips />} />
                 <Route path='/current' element={<CurrentTrip />} />
                 <Route path='/details/:_id' element={<TripDetails />} />
+                <Route path='/archived/:_id' element={<ArchivedDetails />} />
               </Route>
             </Routes>
           </>

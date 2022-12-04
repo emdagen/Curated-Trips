@@ -6,6 +6,7 @@ import styled from 'styled-components';
 import UploadWidget from '../components/UploadWidget';
 import { Cloudinary } from '@cloudinary/url-gen';
 import Day from '../components/Day';
+import EndAdventure from '../components/EndAdventure';
 
 const TripDetails = () => {
   const {
@@ -79,13 +80,7 @@ const TripDetails = () => {
           </div>
 
           {/* //If there are images in array, display them. */}
-
-          <StyledBtnContainer>
-            <Navlink to={`/archived`}>
-              <StyledEndBtn>End Adventure</StyledEndBtn>
-            </Navlink>
-            <StyledNote>*Trip will be saved in Archived</StyledNote>
-          </StyledBtnContainer>
+          <EndAdventure />
         </>
       )}
     </StyledContainer>

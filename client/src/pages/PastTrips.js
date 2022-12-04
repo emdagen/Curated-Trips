@@ -3,15 +3,14 @@ import { StateContext } from '../context/StateContext';
 import { NavLink } from 'react-router-dom';
 import styled from 'styled-components';
 
-const PastTrips = () => {
+const CurrentTrip = () => {
   const { userData, pastTrip, setPastTrip } = useContext(StateContext);
-  console.log(pastTrip);
-  console.log(userData);
+
   useEffect(() => {
     const getPastTrips = async () => {
       const res = await fetch(`/api/pastTrips/${userData._id}`);
       const json = await res.json();
-      console.log(json);
+      // console.log(json);
       setPastTrip(json.data);
     };
     getPastTrips();
@@ -21,12 +20,13 @@ const PastTrips = () => {
     <>
       {pastTrip && (
         <StyledCurrentTrips>
-          <StyledHead>Archived Adventures</StyledHead>
+          <StyledHead>List of Adventures</StyledHead>
+          <StyledEx>Click on a Trip to View/Edit</StyledEx>
           <StyledContainer>
             {pastTrip.map((trip, index) => {
-              console.log(trip);
+              // console.log(trip);
               return (
-                <StyledNav to={`/details/${trip._id}`}>
+                <StyledNav to={`/archived/${trip._id}`}>
                   <StyledTripContainer key={trip.index}>
                     <StyledTripName>{trip.title}</StyledTripName>
                     <StyledTripDetails>
@@ -81,4 +81,4 @@ const StyledEx = styled.p`
   text-align: center;
   padding-bottom: 50px;
 `;
-export default PastTrips;
+export default CurrentTrip;
