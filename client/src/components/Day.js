@@ -1,8 +1,35 @@
-import { useState } from 'react';
+import { useState, useContext } from 'react';
+import { StateContext } from '../context/StateContext';
 import styled from 'styled-components';
 import ActivityType from './ActivityType';
+import AddComment from './AddComment';
 
-const Day = ({ day, index }) => {
+const Day = ({ day, index, commentsArray }) => {
+  const [toggleShow, setToggleShow] = useState(false);
+  const { commentsObj, setCommentsObj } = useContext(StateContext);
+
+  const handleRemove = async (comment) => {
+    try {
+      const res = await fetch('/api/remove-comment', {
+        method: 'PATCH',
+        body: JSON.stringify(comment),
+        headers: {
+          'Content-type': 'application/json',
+        },
+      });
+      const json = await res.json();
+      console.log(json);
+      setCommentsObj(json.data);
+      // if (json.status === 404) {
+      //   setLoadingObj({ ...loadingObj, board: 'checked' });
+      // } else {
+      //   setLoadingObj({ ...loadingObj, board: 'verify' });
+      // }
+    } catch (err) {
+      console.log(err);
+    }
+  };
+
   return (
     <StyledDay key={day.id}>
       <StyledTop>
@@ -14,6 +41,33 @@ const Day = ({ day, index }) => {
           // console.log(activity);
           return <ActivityType activity={activity} dayId={day.id} />;
         })}
+      {toggleShow && commentsArray && (
+        <div>
+          {commentsArray.map((comment, index) => {
+            console.log(comment);
+            return (
+              <div>
+                <p>Entry #{index + 1}</p>
+                <p>{comment.comment}</p>
+                <button
+                  onClick={() => {
+                    handleRemove(comment);
+                  }}
+                >
+                  Delete
+                </button>
+              </div>
+            );
+          })}
+        </div>
+      )}
+      <AddComment
+        day={day}
+        column={index}
+        toggleShow={toggleShow}
+        setToggleShow={setToggleShow}
+        commentsArray={commentsArray}
+      />
     </StyledDay>
   );
 };

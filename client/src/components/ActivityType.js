@@ -2,6 +2,7 @@ import styled from 'styled-components';
 import { useContext, useState } from 'react';
 import { StateContext } from '../context/StateContext';
 import { useParams } from 'react-router';
+import AddComment from './AddComment';
 
 const ActivityType = ({ activity, dayId }) => {
   const [formData, setFormData] = useState(activity);
@@ -103,17 +104,6 @@ const ActivityType = ({ activity, dayId }) => {
             placeholder='Please enter the cost'
             value={formData.cost}
           />
-          {/* <textarea
-            onChange={(e) =>
-              setFormData({ ...formData, content: e.target.value })
-            }
-            rows='4'
-            cols='50'
-            name='comment'
-          >
-            {' '}
-            Enter text here...
-          </textarea> */}
 
           <StyledBtnContainer>
             <StyledBtn type='submit'>Save Changes</StyledBtn>

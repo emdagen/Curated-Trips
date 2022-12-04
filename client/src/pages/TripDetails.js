@@ -8,8 +8,17 @@ import { Cloudinary } from '@cloudinary/url-gen';
 import Day from '../components/Day';
 
 const TripDetails = () => {
-  const { dayDetails, setDayDetails, tripDetails, setTripDetails } =
-    useContext(StateContext);
+  const {
+    dayDetails,
+    setDayDetails,
+    tripDetails,
+    setTripDetails,
+    commentsObj,
+    setCommentsObj,
+    imageArray,
+    setImageArray,
+  } = useContext(StateContext);
+
   const { _id } = useParams();
   const cld = new Cloudinary({
     cloud: {
@@ -23,7 +32,9 @@ const TripDetails = () => {
       const json = await res.json();
       setTripDetails(json.data);
       setDayDetails(json.data.arrayOfDays);
-      console.log(json.data);
+      setCommentsObj(json.data.comments);
+      setImageArray(json.data.images);
+      // console.log(json.data);
     };
     fetchHandler();
   }, [_id]);
@@ -37,11 +48,11 @@ const TripDetails = () => {
             <StyledDuration>Duration: {tripDetails.days} Day(s)</StyledDuration>
             <StyledGallery>Image Gallery</StyledGallery>
             <TripGallery>
-              {tripDetails && tripDetails.images === 0 ? (
+              {tripDetails && imageArray === 0 ? (
                 <StyledNoImg>*Currently No Images*</StyledNoImg>
               ) : (
-                tripDetails.images &&
-                tripDetails.images.map((image) => {
+                imageArray &&
+                imageArray.map((image) => {
                   console.log(image);
                   return <StyledImage key={image} src={image} />;
                 })
@@ -51,9 +62,19 @@ const TripDetails = () => {
               </StyledWidgetContainer>{' '}
             </TripGallery>
             <StyledDayContainer>
-              {dayDetails.map((day, index) => {
-                return <Day day={day} index={index} />;
-              })}
+              {dayDetails.length &&
+                dayDetails.map((day, index) => {
+                  const column = `column-${index + 2}`;
+                  const commentsArray = commentsObj && commentsObj[column];
+                  // const column = tripDetails.
+                  return (
+                    <Day
+                      day={day}
+                      index={index}
+                      commentsArray={commentsArray}
+                    />
+                  );
+                })}
             </StyledDayContainer>
           </div>
 

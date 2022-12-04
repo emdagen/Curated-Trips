@@ -34,7 +34,7 @@ const App = () => {
           body: JSON.stringify(user),
         });
         const response = await result.json();
-        console.log(response);
+        // console.log(response);
         setUserData(response.data);
         setLoadingObj({ ...loadingObj, user: 'verify' });
       } catch (err) {

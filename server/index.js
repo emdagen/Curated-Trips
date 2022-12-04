@@ -12,6 +12,8 @@ const getCurrentTrips = require('./handlers/getCurrentTrip');
 const uploadImage = require('./handlers/uploadImage');
 const updateActivity = require('./handlers/updateActivity');
 const getPastTrips = require('./handlers/getPastTrips');
+const addCommentHandler = require('./handlers/addCommentHandler');
+const removeComment = require('./handlers/removeComment');
 
 express()
   //allows server to auto parse the req.body
@@ -21,10 +23,12 @@ express()
   .use(morgan('tiny'))
 
   //POST
+  .post('/api/add-comment', addCommentHandler)
   .post('/api/uploadImage', uploadImage)
   .post('/api/verify-user', verifyUser)
   .post('/api/create-board', createBoard)
   //PATCH
+  .patch('/api/remove-comment', removeComment)
   .patch('/api/update-activity', updateActivity)
   .patch('/api/update-board', updateBoard)
   .patch('/api/complete-board', completeBoard)

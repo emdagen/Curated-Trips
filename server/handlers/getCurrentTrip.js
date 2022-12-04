@@ -8,11 +8,10 @@ const options = {
   useNewUrlParser: true,
   useUnifiedTopology: true,
 };
-
+const client = new MongoClient(MONGO_URI, options);
 // checks if user has any trips
 
 const getCurrentTrips = async (req, res) => {
-  const client = new MongoClient(MONGO_URI, options);
   try {
     await client.connect();
 

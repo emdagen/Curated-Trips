@@ -21,9 +21,10 @@ const Provider = ({ children }) => {
     user: 'loading',
     board: 'loading',
   });
-  const [image, setImage] = useState([]);
+  const [imageArray, setImageArray] = useState([]);
   const [tripDetails, setTripDetails] = useState(null);
   const [dayDetails, setDayDetails] = useState(null);
+  const [commentsObj, setCommentsObj] = useState(null);
   return (
     <StateContext.Provider
       value={{
@@ -43,12 +44,14 @@ const Provider = ({ children }) => {
         setLoadingObj,
         currentTrips,
         setCurrentTrips,
-        image,
-        setImage,
+        imageArray,
+        setImageArray,
         tripDetails,
         setTripDetails,
         dayDetails,
         setDayDetails,
+        commentsObj,
+        setCommentsObj,
       }}
     >
       {children}

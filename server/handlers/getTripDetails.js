@@ -30,7 +30,7 @@ const getTripDetails = async (req, res) => {
       return mappedData.slice(1);
     };
     const arrayOfDays = mapBoardData(trip);
-    console.log(trip);
+
     if (trip) {
       res.status(201).json({
         status: 201,
