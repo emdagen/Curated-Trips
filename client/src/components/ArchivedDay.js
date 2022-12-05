@@ -1,10 +1,6 @@
-import { useState, useContext } from 'react';
+import { useContext } from 'react';
 import { StateContext } from '../context/StateContext';
 import styled from 'styled-components';
-
-import ActivityType from './ActivityType';
-import AddComment from './AddComment';
-import { BiMessageSquareX } from 'react-icons/bi';
 import { format, parseISO } from 'date-fns';
 import ArchivedActivity from './ArchivedActivity';
 
@@ -46,22 +42,26 @@ const ArchivedDay = ({ day, index, commentsArray }) => {
 export default ArchivedDay;
 
 const StyledDay = styled.div`
-  border: 2px solid green;
+  /* border: 2px solid green; */
   border-radius: 10px;
   box-shadow: rgba(0, 0, 0, 0.24) 0px 3px 8px;
-  min-height: 200px;
-  width: 500px;
+  min-height: 500px;
+  width: 400px;
   display: flex;
   flex-direction: column;
+  padding: 16px;
   background-color: #c5d5e4;
 `;
 const StyledNumDay = styled.h3`
   font-size: 25px;
   text-align: center;
+  margin-bottom: 5px;
 `;
 
 const StyledTop = styled.div`
-  border: 2px solid turquoise;
+  margin-top: 10px;
+  margin-bottom: 10px;
+  border-bottom: 2px solid black;
 `;
 
 const StyledComment = styled.div`

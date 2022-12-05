@@ -15,18 +15,18 @@ const Card = ({ card, index }) => {
           isDragging={snapshot.isDragging}
         >
           <StyledCard>
-            <p>
+            <StyledP>
               <StyledSpan>Type:</StyledSpan> {card.activity}
-            </p>
-            <p>
+            </StyledP>
+            <StyledP>
               <StyledSpan>Description:</StyledSpan> {card.title}
-            </p>
-            <p>
+            </StyledP>
+            <StyledP>
               <StyledSpan>Duration:</StyledSpan> {card.duration} hour(s)
-            </p>
-            <p>
+            </StyledP>
+            <StyledP>
               <StyledSpan>Cost:</StyledSpan> $ {card.cost}
-            </p>
+            </StyledP>
           </StyledCard>
         </StyledDnDCard>
       )}
@@ -53,5 +53,10 @@ const StyledDnDCard = styled.div`
 
 const StyledSpan = styled.span`
   font-weight: bold;
+  font-size: 20px;
 `;
+const StyledP = styled.p`
+  font-size: 20px;
+`;
+
 export default Card;

@@ -2,7 +2,6 @@ import styled from 'styled-components';
 import { useContext, useState } from 'react';
 import { StateContext } from '../context/StateContext';
 import { useParams } from 'react-router';
-// import { BiEdit } from 'react-icons/bi';
 import AddComment from './AddComment';
 
 const ActivityType = ({ activity, dayId }) => {
@@ -45,7 +44,7 @@ const ActivityType = ({ activity, dayId }) => {
   };
 
   return (
-    <>
+    <StyledContainer>
       {!toggleForm ? (
         <StyledActivity key={activity.id}>
           <div>
@@ -65,49 +64,51 @@ const ActivityType = ({ activity, dayId }) => {
         </StyledActivity>
       ) : (
         <StyledForm onSubmit={updateActivity}>
-          <h3>Select your Card Type:</h3>
-          <select
-            value={formData.activity}
-            onChange={(e) =>
-              setFormData({ ...formData, activity: e.target.value })
-            }
-          >
-            <option value='' disabled>
-              Please Select
-            </option>
-            <option value='Travel'>Travel</option>
-            <option value='Hotel'>Hotel</option>
-            <option value='Restaurant'>Restaurant</option>
-            <option value='Activity'>Activity</option>
-          </select>
-          <h3>Description:</h3>
-          <input
-            type='text'
-            onChange={(e) =>
-              setFormData({ ...formData, title: e.target.value })
-            }
-            placeholder='Details of your activity'
-            value={formData.title}
-          />
-          <h3>Duration:</h3>
-          <input
-            type='number'
-            onChange={(e) =>
-              setFormData({ ...formData, duration: e.target.value })
-            }
-            placeholder='The estimated duration'
-            value={formData.duration}
-          />
-          <h3>Cost:</h3>
-          <input
-            type='number'
-            onChange={(e) => setFormData({ ...formData, cost: e.target.value })}
-            placeholder='Please enter the cost'
-            value={formData.cost}
-          />
-
+          <StyledActivity>
+            <h3>Select your Card Type:</h3>
+            <StyledSelect
+              value={formData.activity}
+              onChange={(e) =>
+                setFormData({ ...formData, activity: e.target.value })
+              }
+            >
+              <option value='' disabled>
+                Please Select
+              </option>
+              <option value='Travel'>Travel</option>
+              <option value='Hotel'>Hotel</option>
+              <option value='Restaurant'>Restaurant</option>
+              <option value='Activity'>Activity</option>
+            </StyledSelect>
+            <h3>Description:</h3>
+            <StyledInput
+              type='text'
+              onChange={(e) =>
+                setFormData({ ...formData, title: e.target.value })
+              }
+              placeholder='Details of your activity'
+              value={formData.title}
+            />
+            <h3>Duration:</h3>
+            <StyledInput
+              type='number'
+              onChange={(e) =>
+                setFormData({ ...formData, duration: e.target.value })
+              }
+              placeholder='The estimated duration'
+              value={formData.duration}
+            />
+            <h3>Cost:</h3>
+            <StyledInput
+              type='number'
+              onChange={(e) =>
+                setFormData({ ...formData, cost: e.target.value })
+              }
+              placeholder='Please enter the cost'
+              value={formData.cost}
+            />
+          </StyledActivity>
           <StyledBtnContainer>
-            <StyledBtn type='submit'>Save Change</StyledBtn>
             <StyledBtn
               onClick={() => {
                 setToggleForm(!toggleForm);
@@ -115,6 +116,7 @@ const ActivityType = ({ activity, dayId }) => {
             >
               Edit
             </StyledBtn>
+            <StyledBtn type='submit'>Save</StyledBtn>
           </StyledBtnContainer>
         </StyledForm>
       )}
@@ -130,14 +132,25 @@ const ActivityType = ({ activity, dayId }) => {
           </StyledBtn>
         </StyledEditBtnContainer>
       )}
-    </>
+    </StyledContainer>
   );
 };
 
+const StyledContainer = styled.div`
+  margin-top: 10px;
+  /* border: 5px solid orange; */
+  display: flex;
+  justify-content: space-between;
+  /* flex-direction: column; */
+`;
+
 const StyledActivity = styled.div`
-  /* padding-bottom: 15px; */
-  border: 2px solid red;
+  /* margin-top: 10px; */
+  /* border: 2px solid red; */
+  width: 100%;
   padding-left: 10px;
+  padding-bottom: 10px;
+  line-height: 1.5em;
 `;
 
 const StyledBold = styled.span`
@@ -145,10 +158,14 @@ const StyledBold = styled.span`
 `;
 
 const StyledBtn = styled.button`
-  display: inline-block;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  height: 50px;
+  width: 50px;
   padding: 3px;
   border: 0.2em solid #d6ccc2;
-  border-radius: 0.12em;
+  border-radius: 50%;
   box-sizing: border-box;
   text-decoration: none;
   color: black;
@@ -165,14 +182,33 @@ const StyledBtn = styled.button`
 `;
 
 const StyledBtnContainer = styled.div`
-  border: 2px solid pink;
-  margin-top: 10px;
+  /* border: 2px solid black; */
+  display: flex;
+  flex-direction: column;
+  gap: 16px;
 `;
+
 const StyledForm = styled.form`
   margin-top: 10px;
   margin-left: 10px;
-  border: 2px solid blue;
+  /* border: 2px solid blue; */
+  display: flex;
+  width: 100%;
+  gap: 16px;
+
+  /* flex-direction: column; */
 `;
+
 const StyledEditBtnContainer = styled.div``;
+
+const StyledInput = styled.input`
+  height: 30px;
+  width: 100%;
+`;
+
+const StyledSelect = styled.select`
+  height: 30px;
+  width: 100%;
+`;
 
 export default ActivityType;

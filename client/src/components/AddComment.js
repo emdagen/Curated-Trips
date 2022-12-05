@@ -52,7 +52,7 @@ const AddComment = ({
               setFormData({ ...formData, comment: e.target.value })
             }
             rows='5'
-            cols='65'
+            cols='47'
             name='comment'
             placeholder='Add your tips & tricks here ...'
           ></textarea>

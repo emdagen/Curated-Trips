@@ -31,14 +31,14 @@ const CreateForm = () => {
       <StyledForm onSubmit={(e) => handleSubmit(e)}>
         <StyledDescription>New Adventures</StyledDescription>
         <StepOne>Start a new trip</StepOne>
-        <StyledDescription2>Name:</StyledDescription2>
+        <StyledDescription2>Name :</StyledDescription2>
         <Input
           type='text'
           onChange={(e) => setTitle(e.target.value)}
           placeholder='Name of Adventure'
           value={title}
         />
-        <h3>Number of Days :</h3>
+        <StyledDescription2>Number of Days :</StyledDescription2>
         <Input
           type='number'
           onChange={(e) => setDuration(e.target.value)}
@@ -108,7 +108,7 @@ const Input = styled.input`
 
 const StepOne = styled.h3`
   text-align: center;
-  font-size: 20px;
+  font-size: 25px;
 `;
 
 const Submit = styled.button`
@@ -136,7 +136,7 @@ const Submit = styled.button`
 
 const StyledDescription = styled.h2`
   text-align: center;
-  font-size: 30px;
+  font-size: 40px;
 `;
 
 const StyledDescription2 = styled.h3`
@@ -164,7 +164,7 @@ const StyledPast = styled.div`
 const StyledLink = styled.p`
   height: 550px;
   border-radius: 10px;
-  font-size: 30px;
+  font-size: 40px;
   font-weight: bold;
   color: black;
   display: flex;

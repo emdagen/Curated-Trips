@@ -2,7 +2,7 @@ import styled from 'styled-components';
 
 const ArchivedActivity = ({ activity, dayId }) => {
   return (
-    <>
+    <StyledContainer>
       <StyledActivity key={activity.id}>
         <div>
           <StyledBold>Type:</StyledBold> {activity.activity}
@@ -19,18 +19,27 @@ const ArchivedActivity = ({ activity, dayId }) => {
           <StyledBold> Cost: </StyledBold>${activity.cost}
         </div>
       </StyledActivity>
-    </>
+    </StyledContainer>
   );
 };
 
 const StyledActivity = styled.div`
-  /* padding-bottom: 15px; */
-  border: 2px solid red;
+  /* border: 2px solid red; */
   padding-left: 10px;
+  gap: 16px;
+  margin-bottom: 16px;
+  margin-top: 16px;
+  line-height: 1.5em;
 `;
 
 const StyledBold = styled.span`
   font-weight: bold;
 `;
 
+const StyledContainer = styled.div`
+  /* border: 2px solid blue;
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between; */
+`;
 export default ArchivedActivity;

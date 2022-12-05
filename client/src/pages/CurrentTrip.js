@@ -32,7 +32,6 @@ const CurrentTrip = () => {
                     <StyledTripDetails>
                       Duration: {trip.days} Day(s){' '}
                     </StyledTripDetails>
-                    {/* <StyledTripDetails>Trip ID: {trip._id}</StyledTripDetails> */}
                   </StyledTripContainer>
                 </StyledNav>
               );
@@ -60,7 +59,7 @@ const StyledContainer = styled.div`
   margin-top: 50px;
   display: flex;
   gap: 16px;
-  border: 2px solid pink;
+  /* border: 2px solid pink; */
   display: flex;
   justify-content: space-evenly;
 `;
@@ -82,21 +81,26 @@ const StyledTripContainer = styled.div`
   align-items: center;
   gap: 15px;
 `;
+
 const StyledNav = styled(NavLink)`
   text-decoration: none;
   color: black;
 `;
+
 const StyledTripName = styled.h3`
   text-align: center;
   font-size: 25px;
   padding: 10px;
 `;
+
 const StyledTripDetails = styled.p`
   font-size: 20px;
 `;
+
 const StyledEx = styled.p`
   font-size: 20px;
   text-align: center;
   padding-bottom: 50px;
 `;
+
 export default CurrentTrip;

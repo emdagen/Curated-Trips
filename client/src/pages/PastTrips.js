@@ -44,23 +44,26 @@ const CurrentTrip = () => {
 };
 
 const StyledCurrentTrips = styled.div`
-  border: 2px solid blue;
+  /* border: 2px solid blue; */
   min-height: 100vh;
   min-width: 100vw;
 `;
+
 const StyledHead = styled.h2`
   text-align: center;
   font-size: 30px;
   padding: 50px 10px 10px 10px;
 `;
+
 const StyledContainer = styled.div`
   margin-top: 80px;
   display: flex;
   gap: 16px;
-  border: 2px solid pink;
+  /* border: 2px solid pink; */
   display: flex;
   justify-content: space-evenly;
 `;
+
 const StyledTripContainer = styled.div`
   background-color: #d6ccc2;
   border-radius: 10px;
@@ -77,15 +80,18 @@ const StyledTripContainer = styled.div`
   align-items: center;
   gap: 15px;
 `;
+
 const StyledNav = styled(NavLink)`
   text-decoration: none;
   color: black;
 `;
+
 const StyledTripName = styled.h3`
   text-align: center;
   font-size: 25px;
   padding: 10px;
 `;
+
 const StyledTripDetails = styled.p`
   font-size: 20px;
 `;

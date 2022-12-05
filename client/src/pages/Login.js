@@ -1,4 +1,4 @@
-import styled, { keyframes } from 'styled-components';
+import styled from 'styled-components';
 import { useAuth0 } from '@auth0/auth0-react';
 import sample from '../video/pictures.mp4';
 
@@ -9,7 +9,7 @@ const Login = () => {
     <MainContainer>
       <Video autoPlay loop muted src={sample} type='video/mp4' />
       <StyledLoginContainer>
-        <h1>Welcome to Cur(e)ated Trips</h1>
+        <StyledH1>Welcome to Cur(e)ated Trips</StyledH1>
         <StyledDescription>
           A travel itinerary building app made for adventure seekers.
         </StyledDescription>
@@ -42,12 +42,14 @@ const StyledLoginContainer = styled.div`
   background-color: #d6ccc2;
   position: absolute;
 `;
+
 const StyledDescription = styled.p`
-  margin-top: 20px;
-  margin-bottom: 20px;
-  font-size: 18px;
+  margin-top: 30px;
+  margin-bottom: 30px;
+  font-size: 32px;
   text-align: center;
 `;
+
 const StyledBtn = styled.button`
   display: inline-block;
   padding: 0.35em 1.2em;
@@ -67,6 +69,7 @@ const StyledBtn = styled.button`
     background-color: #ffffff;
   }
 `;
+
 const Video = styled.video`
   object-fit: cover;
   width: 100vw;
@@ -75,4 +78,9 @@ const Video = styled.video`
   top: 0;
   left: 0;
 `;
+
+const StyledH1 = styled.h1`
+  font-size: 60px;
+`;
+
 export default Login;

@@ -54,8 +54,11 @@ const CreateTask = () => {
   return (
     <StyledCreate>
       <form onSubmit={handleSubmit}>
-        <h3>Select your Card Type:</h3>
-        <select value={activity} onChange={(e) => setActivity(e.target.value)}>
+        <StyledDescription>Select your Card Type:</StyledDescription>
+        <StyledSelect
+          value={activity}
+          onChange={(e) => setActivity(e.target.value)}
+        >
           <option value='' disabled>
             Please Select
           </option>
@@ -63,23 +66,23 @@ const CreateTask = () => {
           <option value='Hotel'>Hotel</option>
           <option value='Restaurant'>Restaurant</option>
           <option value='Activity'>Activity</option>
-        </select>
-        <h3>Description:</h3>
-        <input
+        </StyledSelect>
+        <StyledDescription>Description:</StyledDescription>
+        <StyledInput
           type='text'
           onChange={(e) => setTitle(e.target.value)}
           placeholder='Details of your activity'
           value={title}
         />
-        <h3>Duration:</h3>
-        <input
+        <StyledDescription>Duration:</StyledDescription>
+        <StyledInput
           type='number'
           onChange={(e) => setDuration(e.target.value)}
           placeholder='The estimated duration'
           value={duration}
         />
-        <h3>Cost:</h3>
-        <input
+        <StyledDescription>Cost:</StyledDescription>
+        <StyledInput
           type='number'
           onChange={(e) => setCost(e.target.value)}
           placeholder='Please enter the cost'
@@ -95,30 +98,35 @@ export default CreateTask;
 
 const StyledCreate = styled.div`
   position: absolute;
-  height: 100vh;
+  height: calc(100vh - 80px);
   width: 100%;
-  /* border: 1px solid red; */
   display: grid;
   place-content: center;
+  /* border: 2px solid red; */
+
   form {
+    /* border: 2px solid pink; */
+    width: 340px;
+    height: 480px;
     position: relative;
     z-index: 10;
     display: flex;
     flex-direction: column;
     gap: 16px;
     padding: 48px;
-    background-image: url('https://images.unsplash.com/photo-1530569673472-307dc017a82d?ixlib=rb-4.0.3&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=688&q=80');
-    /* background-image: url('https://images.unsplash.com/photo-1612690119274-8819a81c13a2?ixlib=rb-4.0.3&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=735&q=80'); */
+    background-image: url('https://images.unsplash.com/photo-1617972883080-16388d14c021?ixlib=rb-4.0.3&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=774&q=80');
     background-repeat: no-repeat;
     background-size: cover;
     /* background-color: #2774ae; */
-    color: #005a9c;
+    color: black;
     border-radius: 8%;
     box-shadow: rgba(0, 0, 0, 0.19) 0px 10px 20px,
       rgba(0, 0, 0, 0.23) 0px 6px 6px;
   }
 `;
+
 const SubmitBtn = styled.button`
+  margin-top: 10px;
   text-decoration: none;
   height: 30px;
   border-radius: 10px;
@@ -149,4 +157,16 @@ const SubmitBtn = styled.button`
   :hover:before {
     left: 100%;
   }
+`;
+
+const StyledDescription = styled.h3`
+  font-size: 20px;
+`;
+
+const StyledInput = styled.input`
+  height: 30px;
+`;
+
+const StyledSelect = styled.select`
+  height: 30px;
 `;

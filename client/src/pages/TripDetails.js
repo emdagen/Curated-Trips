@@ -86,7 +86,6 @@ const TripDetails = () => {
 };
 
 const StyledContainer = styled.div`
-  /* border: 3px solid pink; */
   width: 100vw;
   min-height: calc(100vh - 50px);
   background-color: #01497c;
@@ -105,41 +104,24 @@ const StyledDuration = styled.p`
 `;
 
 const StyledDayContainer = styled.div`
-  margin: 10px;
-
-  /* display: grid;
-  grid-template-columns: 2fr 2fr 2fr 2fr; */
-  /* gap: 15px; */
-  display: flex;
-  justify-content: space-between;
-`;
-
-const StyledEndBtn = styled.button`
-  width: 200px;
-  height: 70px;
-  border-radius: 10px;
-  font-size: 20px;
-`;
-
-const StyledBtnContainer = styled.div`
-  margin-top: 50px;
-  /* border: 2px solid white; */
-  display: flex;
-  flex-direction: column;
-  align-items: center;
+  margin: auto;
+  padding: 10px;
+  /* border: 2px solid orange; */
+  display: grid;
+  grid-template-columns: 2fr 2fr 2fr 2fr;
+  gap: 16px;
+  max-width: 1900px;
+  place-items: center;
+  height: 100%;
 `;
 
 const TripGallery = styled.div`
   border: 2px solid white;
+  /* background-color: white; */
   display: flex;
   justify-content: center;
   align-items: center;
   margin-top: 20px;
-`;
-
-const StyledNote = styled.p`
-  color: white;
-  font-size: 15px;
 `;
 
 const StyledImage = styled.img`
@@ -157,7 +139,6 @@ const StyledGallery = styled.h3`
 `;
 
 const StyledWidgetContainer = styled.div`
-  /* border: 2px solid orange; */
   display: flex;
   justify-content: center;
   margin-top: 20px;

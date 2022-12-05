@@ -7,7 +7,7 @@ const Column = ({ column, tasks }) => {
   //tasks === card data
   return (
     <StyledContainer>
-      <h1>{column.title}</h1>
+      <StyledTitle>{column.title}</StyledTitle>
       {/*Droppable JSX PROVIDED FROM BEAUTIFUL DND */}
       <Droppable droppableId={column.id}>
         {(provided, snapshot) => {
@@ -30,20 +30,15 @@ const Column = ({ column, tasks }) => {
   );
 };
 
-export default Column;
-
 const StyledContainer = styled.div`
-  border: 2px solid orange;
+  border: 2px solid white;
   border-radius: 10px;
-  padding: 8px;
-  min-width: 250px;
+  margin-bottom: 10px;
+  padding: 10px;
+  min-width: 300px;
   width: 100%;
-
   display: flex;
   flex-direction: column;
-  /* background-image: url('https://images.unsplash.com/photo-1516541196182-6bdb0516ed27?ixlib=rb-4.0.3&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=687&q=80');
-  background-repeat: no-repeat;
-  background-size: cover; */
   background-color: #b9d9eb;
   box-shadow: rgba(0, 0, 0, 0.19) 0px 10px 20px, rgba(0, 0, 0, 0.23) 0px 6px 6px;
   &:first-child {
@@ -63,3 +58,10 @@ const StyledCardContainer = styled.div`
     padding: 8px;
   }
 `;
+
+const StyledTitle = styled.h1`
+  text-align: center;
+  border-bottom: 2px solid black;
+`;
+
+export default Column;

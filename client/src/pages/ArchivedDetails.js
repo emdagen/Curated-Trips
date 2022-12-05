@@ -36,9 +36,15 @@ const ArchivedDetails = () => {
     <>
       {archivedDetail && (
         <StyledPastTrip>
-          <h2>{archivedDetail.title}</h2>
-          <p>Duration: {archivedDetail.days} Day(s)</p>
-          <h3>Image Gallery</h3>
+          <StyledTitle>
+            <StyledName>{archivedDetail.title}</StyledName>
+            <StyledDuration>
+              <StyledSpan> Duration:</StyledSpan> {archivedDetail.days} Day(s)
+            </StyledDuration>
+          </StyledTitle>
+          <StyledH3>
+            <StyledH2>Image Gallery</StyledH2>
+          </StyledH3>
           <StyledGallery>
             {archivedDetail.images &&
               archivedDetail.images.map((image) => {
@@ -72,11 +78,52 @@ const ArchivedDetails = () => {
     </>
   );
 };
-const StyledPastTrip = styled.div``;
+const StyledPastTrip = styled.div`
+  display: flex;
+  flex-direction: column;
+  gap: 50px;
+`;
 const StyledImage = styled.img`
   width: 300px;
   max-height: 400px;
 `;
-const StyledGallery = styled.div``;
-const StyledDayContainer = styled.div``;
+const StyledGallery = styled.div`
+  border: 2px double black;
+  display: flex;
+  justify-content: space-around;
+  padding: 10px;
+`;
+const StyledDayContainer = styled.div`
+  /* border: 2px solid purple; */
+  display: flex;
+  justify-content: space-around;
+`;
+const StyledTitle = styled.div`
+  margin-top: 50px;
+  /* border: 2px solid orange; */
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+`;
+const StyledH3 = styled.h3`
+  /* border: 2px solid pink; */
+  display: flex;
+  justify-content: center;
+`;
+const StyledName = styled.h2`
+  font-size: 30px;
+`;
+const StyledDuration = styled.p`
+  font-size: 20px;
+`;
+
+const StyledSpan = styled.span`
+  font-weight: bold;
+`;
+const StyledH2 = styled.h2`
+  font-size: 25px;
+  padding: 7px;
+  border: 3px double black;
+`;
 export default ArchivedDetails;

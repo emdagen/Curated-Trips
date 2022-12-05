@@ -9,8 +9,8 @@ const Board = () => {
   const { boardData, setBoardData, updateDB, setUpdateDB, userData } =
     useContext(StateContext);
 
+  //updates database
   useEffect(() => {
-    //updates database
     const updateBoardData = async () => {
       const res = await fetch('/api/update-board', {
         method: 'PATCH',
@@ -29,13 +29,13 @@ const Board = () => {
   // PROVIDED FROM BEAUTIFUL DND
   // function that runs when you drop the card
   const onDragEnd = (result) => {
-    // reorder column
+    // reorders column
     const { destination, source, draggableId } = result;
 
     if (!destination) {
       return;
     }
-    //check to see if the position changed
+    //checks to see if the position changed
     if (
       destination.droppableId === source.droppableId &&
       destination.index === source.index
@@ -45,6 +45,7 @@ const Board = () => {
     //get the original column
     const start = boardData.columns[source.droppableId];
     const finish = boardData.columns[destination.droppableId];
+
     if (start === finish) {
       //create new array with same content
       const newTasksIds = Array.from(start.taskIds);

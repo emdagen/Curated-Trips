@@ -8,13 +8,16 @@ const GlobalStyles = createGlobalStyle`
 }
 
 body{
-  font-family: sans-serif;
+  font-family: 'Lobster', cursive, 'sans-serif';
   color:black;
 }
     a {
     text-decoration: none;
   }
 
-
+button{
+  font-family: 'Lobster', cursive, 'sans-serif';
+  letter-spacing:1px;
+}
 `;
 export default GlobalStyles;
