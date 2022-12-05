@@ -16,6 +16,7 @@ import ArchivedDetails from '../pages/ArchivedDetails';
 
 //api, libraries
 import { useAuth0 } from '@auth0/auth0-react';
+import Loading from './Loading';
 
 const App = () => {
   const { user, isAuthenticated, isLoading } = useAuth0();
@@ -65,12 +66,12 @@ const App = () => {
           </>
         ) : !isLoading && loadingObj.user === 'loading' ? (
           loadingObj.user === 'verify' || isAuthenticated ? (
-            <h1>Loading ... </h1>
+            <Loading />
           ) : (
             <Login />
           )
         ) : (
-          <h1>Something</h1>
+          <Loading />
         )}
       </StyledApp>
     </BrowserRouter>
