@@ -4,6 +4,8 @@ import { useParams, useNavigate } from 'react-router-dom';
 const EndAdventure = () => {
   const navigate = useNavigate();
   const { _id } = useParams();
+
+  // DELETE that removes trip from CurrentTrip Collection //
   const handleRemove = async () => {
     try {
       const res = await fetch(`/api/archive-trip/${_id}`, {
@@ -12,11 +14,6 @@ const EndAdventure = () => {
       const json = await res.json();
       console.log(json);
       navigate(`/archived`);
-      // if (json.status === 404) {
-      //   setLoadingObj({ ...loadingObj, board: 'checked' });
-      // } else {
-      //   setLoadingObj({ ...loadingObj, board: 'verify' });
-      // }
     } catch (err) {
       console.log(err);
     }
@@ -31,10 +28,26 @@ const EndAdventure = () => {
 };
 
 const StyledEndBtn = styled.button`
-  width: 200px;
-  height: 70px;
-  border-radius: 10px;
+  display: inline-block;
+  padding: 0.35em 1.2em;
+  border: 0.2em solid #d6ccc2;
+  border-radius: 0.12em;
+  box-sizing: border-box;
+  text-decoration: none;
+  color: black;
+  text-align: center;
+  transition: all 0.2s;
+  font-weight: 600;
   font-size: 20px;
+  box-shadow: rgba(0, 0, 0, 0.24) 0px 3px 8px;
+  :hover {
+    color: #d6ccc2;
+    background-color: #ffffff;
+  }
+  margin-top: 5px;
+  margin-right: 5px;
+  width: 200px;
+  height: 80px;
 `;
 const StyledBtnContainer = styled.div`
   margin-top: 50px;
@@ -46,6 +59,7 @@ const StyledBtnContainer = styled.div`
 const StyledNote = styled.p`
   color: white;
   font-size: 15px;
+  margin-top: 5px;
 `;
 
 export default EndAdventure;

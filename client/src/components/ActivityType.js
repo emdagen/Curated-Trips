@@ -2,7 +2,7 @@ import styled from 'styled-components';
 import { useContext, useState } from 'react';
 import { StateContext } from '../context/StateContext';
 import { useParams } from 'react-router';
-
+// import { BiEdit } from 'react-icons/bi';
 import AddComment from './AddComment';
 
 const ActivityType = ({ activity, dayId }) => {
@@ -146,15 +146,14 @@ const StyledBold = styled.span`
 
 const StyledBtn = styled.button`
   display: inline-block;
-  padding: 0.35em 1.2em;
+  padding: 3px;
   border: 0.2em solid #d6ccc2;
   border-radius: 0.12em;
   box-sizing: border-box;
   text-decoration: none;
-  color: #d6ccc2;
+  color: black;
   text-align: center;
   transition: all 0.2s;
-  font-weight: 600;
   font-size: 15px;
   box-shadow: rgba(0, 0, 0, 0.24) 0px 3px 8px;
   :hover {
@@ -167,24 +166,13 @@ const StyledBtn = styled.button`
 
 const StyledBtnContainer = styled.div`
   border: 2px solid pink;
-  /* display: flex;
-  justify-content: center; */
-  /* margin-left: 10px; */
   margin-top: 10px;
 `;
 const StyledForm = styled.form`
   margin-top: 10px;
   margin-left: 10px;
   border: 2px solid blue;
-  /* display: flex;
-  flex-direction: column;
-  justify-content: center;
-  align-items: center; */
 `;
-const StyledEditBtnContainer = styled.div`
-  /* border: 2px solid orange; */
-  /* padding-left: 10px; */
-  /* margin-bottom: 5px; */
-`;
+const StyledEditBtnContainer = styled.div``;
 
 export default ActivityType;

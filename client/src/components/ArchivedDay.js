@@ -6,29 +6,11 @@ import ActivityType from './ActivityType';
 import AddComment from './AddComment';
 import { BiMessageSquareX } from 'react-icons/bi';
 import { format, parseISO } from 'date-fns';
+import ArchivedActivity from './ArchivedActivity';
 
-const Day = ({ day, index, commentsArray }) => {
-  const [toggleShow, setToggleShow] = useState(false);
+const ArchivedDay = ({ day, index, commentsArray }) => {
   const { setCommentsObj } = useContext(StateContext);
   let dateFormatted;
-
-  // PATCH to remove comment from Day Card in Trip Details //
-  const handleRemove = async (comment) => {
-    try {
-      const res = await fetch('/api/remove-comment', {
-        method: 'PATCH',
-        body: JSON.stringify(comment),
-        headers: {
-          'Content-type': 'application/json',
-        },
-      });
-      const json = await res.json();
-      console.log(json);
-      setCommentsObj(json.data);
-    } catch (err) {
-      console.log(err);
-    }
-  };
 
   return (
     <StyledDay key={day.id}>
@@ -39,9 +21,9 @@ const Day = ({ day, index, commentsArray }) => {
       {day &&
         day.map((activity) => {
           // console.log(activity);
-          return <ActivityType activity={activity} dayId={day.id} />;
+          return <ArchivedActivity activity={activity} dayId={day.id} />;
         })}
-      {toggleShow && commentsArray && (
+      {commentsArray && (
         <div>
           {commentsArray.map((comment, index) => {
             // console.log(comment);
@@ -53,28 +35,15 @@ const Day = ({ day, index, commentsArray }) => {
                   {index + 1}. Posted on: {dateFormatted}
                 </p>
                 <p>" {comment.comment} "</p>
-                <BiMessageSquareX
-                  onClick={() => {
-                    handleRemove(comment);
-                  }}
-                  size={25}
-                />
               </StyledComment>
             );
           })}
         </div>
       )}
-      <AddComment
-        day={day}
-        column={index}
-        toggleShow={toggleShow}
-        setToggleShow={setToggleShow}
-        commentsArray={commentsArray}
-      />
     </StyledDay>
   );
 };
-export default Day;
+export default ArchivedDay;
 
 const StyledDay = styled.div`
   border: 2px solid green;
