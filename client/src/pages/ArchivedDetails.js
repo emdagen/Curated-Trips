@@ -89,21 +89,33 @@ const StyledPastTrip = styled.div`
 `;
 
 const StyledImage = styled.img`
-  width: 300px;
-  max-height: 400px;
+  min-width: 250;
+  height: 300px;
+  padding-right: 10px;
 `;
 
 const StyledGallery = styled.div`
   /* border: 2px double black; */
-  display: flex;
+  /* display: flex;
   justify-content: space-around;
-  padding: 10px;
+  padding: 10px; */
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  margin-top: 20px;
+  margin-bottom: 20px;
 `;
 
 const StyledDayContainer = styled.div`
+  margin-left: 50px;
+  padding: 5px;
   /* border: 2px solid purple; */
-  display: flex;
-  justify-content: space-around;
+  display: grid;
+  grid-template-columns: 2fr 2fr 2fr 2fr;
+  gap: 16px;
+  /* place-items: center; */
+  /* display: flex;
+  justify-content: space-around; */
 `;
 
 const StyledTitle = styled.div`

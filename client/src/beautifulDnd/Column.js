@@ -35,7 +35,7 @@ const StyledContainer = styled.div`
   border-radius: 10px;
   margin-bottom: 10px;
   padding: 10px;
-  width: 350px;
+  min-width: 350px;
   /* width: 100%; */
   display: flex;
   flex-direction: column;
