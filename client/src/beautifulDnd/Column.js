@@ -35,8 +35,8 @@ const StyledContainer = styled.div`
   border-radius: 10px;
   margin-bottom: 10px;
   padding: 10px;
-  min-width: 300px;
-  width: 100%;
+  width: 350px;
+  /* width: 100%; */
   display: flex;
   flex-direction: column;
   background-color: #b9d9eb;

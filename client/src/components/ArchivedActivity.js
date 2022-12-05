@@ -4,20 +4,20 @@ const ArchivedActivity = ({ activity, dayId }) => {
   return (
     <StyledContainer>
       <StyledActivity key={activity.id}>
-        <div>
+        <StyledRes>
           <StyledBold>Type:</StyledBold> {activity.activity}
-        </div>
-        <div>
+        </StyledRes>
+        <StyledRes>
           <StyledBold>Duration: </StyledBold>
           {activity.duration} hour(s)
-        </div>
-        <div>
+        </StyledRes>
+        <StyledRes>
           <StyledBold> Description: </StyledBold>
           {activity.title}
-        </div>
-        <div>
+        </StyledRes>
+        <StyledRes>
           <StyledBold> Cost: </StyledBold>${activity.cost}
-        </div>
+        </StyledRes>
       </StyledActivity>
     </StyledContainer>
   );
@@ -34,6 +34,8 @@ const StyledActivity = styled.div`
 
 const StyledBold = styled.span`
   font-weight: bold;
+  font-size: 20px;
+  letter-spacing: 1px;
 `;
 
 const StyledContainer = styled.div`
@@ -41,5 +43,10 @@ const StyledContainer = styled.div`
   display: flex;
   flex-direction: column;
   justify-content: space-between; */
+`;
+
+const StyledRes = styled.div`
+  font-size: 20px;
+  letter-spacing: 1px;
 `;
 export default ArchivedActivity;

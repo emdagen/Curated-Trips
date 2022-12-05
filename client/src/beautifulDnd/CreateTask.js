@@ -114,10 +114,10 @@ const StyledCreate = styled.div`
     flex-direction: column;
     gap: 16px;
     padding: 48px;
-    background-image: url('https://images.unsplash.com/photo-1617972883080-16388d14c021?ixlib=rb-4.0.3&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=774&q=80');
+    /* background-image: url('https://images.unsplash.com/photo-1654339394814-0240ba7beea9?ixlib=rb-4.0.3&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=774&q=80');
     background-repeat: no-repeat;
-    background-size: cover;
-    /* background-color: #2774ae; */
+    background-size: cover; */
+    background-color: #72a0c1;
     color: black;
     border-radius: 8%;
     box-shadow: rgba(0, 0, 0, 0.19) 0px 10px 20px,
@@ -134,6 +134,7 @@ const SubmitBtn = styled.button`
   position: relative;
   overflow: hidden;
   background-color: #005a9c;
+  /* letter-spacing: 1px; */
   color: white;
 
   :hover {

@@ -58,5 +58,4 @@ const StyledSpan = styled.span`
 const StyledP = styled.p`
   font-size: 20px;
 `;
-
 export default Card;

@@ -88,13 +88,15 @@ const TripDetails = () => {
 const StyledContainer = styled.div`
   width: 100vw;
   min-height: calc(100vh - 50px);
-  background-color: #01497c;
+  background-color: #6d98ba;
 `;
 
 const StyledHead = styled.h2`
   text-align: center;
   padding: 30px 10px 10px 10px;
-  font-size: 30px;
+  font-size: 35px;
+  color: black;
+  letter-spacing: 3px;
 `;
 
 const StyledDuration = styled.p`
@@ -116,12 +118,13 @@ const StyledDayContainer = styled.div`
 `;
 
 const TripGallery = styled.div`
-  border: 2px solid white;
+  /* border: 2px solid white; */
   /* background-color: white; */
   display: flex;
   justify-content: center;
   align-items: center;
   margin-top: 20px;
+  margin-bottom: 20px;
 `;
 
 const StyledImage = styled.img`
@@ -134,7 +137,7 @@ const StyledImage = styled.img`
 const StyledGallery = styled.h3`
   text-align: center;
   /* margin-top: 20px; */
-  margin-bottom: 10px;
+  margin-bottom: 30px;
   font-size: 25px;
 `;
 

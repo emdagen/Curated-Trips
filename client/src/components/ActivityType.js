@@ -47,20 +47,20 @@ const ActivityType = ({ activity, dayId }) => {
     <StyledContainer>
       {!toggleForm ? (
         <StyledActivity key={activity.id}>
-          <div>
+          <StyledPlan>
             <StyledBold>Type:</StyledBold> {activity.activity}
-          </div>
-          <div>
+          </StyledPlan>
+          <StyledPlan>
             <StyledBold>Duration: </StyledBold>
             {activity.duration} hour(s)
-          </div>
-          <div>
+          </StyledPlan>
+          <StyledPlan>
             <StyledBold> Description: </StyledBold>
             {activity.title}
-          </div>
-          <div>
+          </StyledPlan>
+          <StyledPlan>
             <StyledBold> Cost: </StyledBold>${activity.cost}
-          </div>
+          </StyledPlan>
         </StyledActivity>
       ) : (
         <StyledForm onSubmit={updateActivity}>
@@ -155,6 +155,8 @@ const StyledActivity = styled.div`
 
 const StyledBold = styled.span`
   font-weight: bold;
+  font-size: 20px;
+  letter-spacing: 1px;
 `;
 
 const StyledBtn = styled.button`
@@ -210,5 +212,8 @@ const StyledSelect = styled.select`
   height: 30px;
   width: 100%;
 `;
-
+const StyledPlan = styled.div`
+  font-size: 20px;
+  letter-spacing: 1px;
+`;
 export default ActivityType;

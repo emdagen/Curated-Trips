@@ -47,6 +47,7 @@ const StyledCurrentTrips = styled.div`
   /* border: 2px solid blue; */
   min-height: 100vh;
   min-width: 100vw;
+  background-color: #afdbf5;
 `;
 
 const StyledHead = styled.h2`

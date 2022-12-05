@@ -71,7 +71,7 @@ const StyledContainer = styled.div`
   direction: ltr;
   display: flex;
   justify-content: flex-start;
-  background-color: black;
+  background-color: #00538c;
 `;
 const StyledMain = styled.div`
   display: flex;

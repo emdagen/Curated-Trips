@@ -66,7 +66,7 @@ const StyledRightNav = styled.div`
 `;
 
 const StyledName = styled.h1`
-  /* margin-left: 50px; */
+  margin-left: 85px;
   font-size: 38px;
 `;
 const StyledNav = styled.div`

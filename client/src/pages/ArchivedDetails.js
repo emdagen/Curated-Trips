@@ -78,26 +78,34 @@ const ArchivedDetails = () => {
     </>
   );
 };
+
 const StyledPastTrip = styled.div`
   display: flex;
   flex-direction: column;
   gap: 50px;
+  background-color: #6d98ba;
+  min-height: calc(100vh - 50px);
+  padding-bottom: 30px;
 `;
+
 const StyledImage = styled.img`
   width: 300px;
   max-height: 400px;
 `;
+
 const StyledGallery = styled.div`
-  border: 2px double black;
+  /* border: 2px double black; */
   display: flex;
   justify-content: space-around;
   padding: 10px;
 `;
+
 const StyledDayContainer = styled.div`
   /* border: 2px solid purple; */
   display: flex;
   justify-content: space-around;
 `;
+
 const StyledTitle = styled.div`
   margin-top: 50px;
   /* border: 2px solid orange; */
@@ -106,14 +114,17 @@ const StyledTitle = styled.div`
   justify-content: center;
   align-items: center;
 `;
+
 const StyledH3 = styled.h3`
   /* border: 2px solid pink; */
   display: flex;
   justify-content: center;
 `;
+
 const StyledName = styled.h2`
   font-size: 30px;
 `;
+
 const StyledDuration = styled.p`
   font-size: 20px;
 `;
@@ -121,9 +132,11 @@ const StyledDuration = styled.p`
 const StyledSpan = styled.span`
   font-weight: bold;
 `;
+
 const StyledH2 = styled.h2`
   font-size: 25px;
   padding: 7px;
   border: 3px double black;
 `;
+
 export default ArchivedDetails;

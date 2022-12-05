@@ -47,6 +47,7 @@ const StyledCurrentTrips = styled.div`
   /* border: 2px solid blue; */
   min-height: calc(100vh - 50px);
   min-width: 100vw;
+  background-color: #afdbf5;
 `;
 
 const StyledHead = styled.h2`
@@ -89,8 +90,9 @@ const StyledNav = styled(NavLink)`
 
 const StyledTripName = styled.h3`
   text-align: center;
-  font-size: 25px;
+  font-size: 30px;
   padding: 10px;
+  text-align: center;
 `;
 
 const StyledTripDetails = styled.p`

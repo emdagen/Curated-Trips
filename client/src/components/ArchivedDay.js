@@ -19,8 +19,10 @@ const ArchivedDay = ({ day, index, commentsArray }) => {
           // console.log(activity);
           return <ArchivedActivity activity={activity} dayId={day.id} />;
         })}
+
       {commentsArray && (
         <div>
+          <StyledComments>Comments</StyledComments>
           {commentsArray.map((comment, index) => {
             // console.log(comment);
             const date = comment.date;
@@ -52,6 +54,7 @@ const StyledDay = styled.div`
   padding: 16px;
   background-color: #c5d5e4;
 `;
+
 const StyledNumDay = styled.h3`
   font-size: 25px;
   text-align: center;
@@ -66,4 +69,9 @@ const StyledTop = styled.div`
 
 const StyledComment = styled.div`
   background-color: white;
+`;
+
+const StyledComments = styled.p`
+  font-size: 20px;
+  border-bottom: 2px solid black;
 `;
