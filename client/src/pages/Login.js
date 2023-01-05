@@ -1,12 +1,16 @@
 import styled from 'styled-components';
 import { useAuth0 } from '@auth0/auth0-react';
 import sample from '../video/pictures.mp4';
+import { useTheme } from '@mui/material/styles';
+import useMediaQuery from '@mui/material/useMediaQuery';
 
 const Login = () => {
   const { loginWithRedirect } = useAuth0();
-
+  const theme = useTheme();
+  const matches = useMediaQuery(theme.breakpoints.up('sm'));
   return (
     <MainContainer>
+      {/* {`theme.breakpoints.up('lg') matches: ${matches}`} */}
       <Video autoPlay loop muted src={sample} type='video/mp4' />
       <StyledLoginContainer>
         <StyledH1>Welcome to Cur(e)ated Trips</StyledH1>
@@ -31,11 +35,13 @@ const MainContainer = styled.div`
 `;
 
 const StyledLoginContainer = styled.div`
-  min-height: 40vh;
+  min-height: 500px;
+  max-height: 50vh;
   width: 40vw;
   border: 10px solid white;
   color: white;
   display: flex;
+  padding: 32px;
   flex-direction: column;
   align-items: center;
   justify-content: center;
@@ -81,6 +87,7 @@ const Video = styled.video`
 
 const StyledH1 = styled.h1`
   font-size: 60px;
+  text-align: center;
 `;
 
 export default Login;
