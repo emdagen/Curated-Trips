@@ -3,48 +3,6 @@ import { useAuth0 } from '@auth0/auth0-react';
 import { StateContext } from '../context/StateContext';
 import { useContext } from 'react';
 // import { BiLogOut, BiUser } from 'react-icons/bi';
-
-// const Navbar = () => {
-//   const { isLoading, logout } = useAuth0();
-//   const { userData } = useContext(StateContext);
-
-//   if (isLoading) {
-//     return <div>Loading ...</div>;
-//   }
-//   return (
-//     <MainContainer>
-//       <StyledNav>
-//         <StyledNavigation to={`/`}>
-//           <StyledP>Create</StyledP>
-//         </StyledNavigation>
-//         <StyledNavigation to={`/current`}>
-//           <StyledP>View Trips </StyledP>
-//         </StyledNavigation>
-//         <StyledNavigation to={`/archived`}>
-//           <StyledP>Archived </StyledP>
-//         </StyledNavigation>
-//       </StyledNav>
-
-//       <StyledNavigation to={`/`}>
-//         <StyledName>Curated Trips</StyledName>
-//       </StyledNavigation>
-//       {userData && (
-//         <StyledRightNav>
-//           <StyledP>
-//             Hi, <span>{userData.name}</span>.{' '}
-//           </StyledP>
-//           <BiLogOut
-//             size={25}
-//             onClick={() => logout({ returnTo: window.location.origin })}
-//           />
-
-//           <StyledNavigation to={`/account`}>
-//             <BiUser size={23} />
-//           </StyledNavigation>
-//         </StyledRightNav>
-//       )}
-//     </MainContainer>
-
 import * as React from 'react';
 import AppBar from '@mui/material/AppBar';
 import Box from '@mui/material/Box';
