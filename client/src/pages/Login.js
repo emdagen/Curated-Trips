@@ -36,6 +36,7 @@ const MainContainer = styled.div`
 
 const StyledLoginContainer = styled.div`
   min-height: 500px;
+  min-width: 300px;
   max-height: 50vh;
   width: 40vw;
   border: 10px solid white;
@@ -86,7 +87,7 @@ const Video = styled.video`
 `;
 
 const StyledH1 = styled.h1`
-  font-size: 60px;
+  font-size: 48px;
   text-align: center;
 `;
 

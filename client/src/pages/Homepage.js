@@ -1,7 +1,6 @@
 import styled from 'styled-components';
 import { useEffect, useContext } from 'react';
 import { StateContext } from '../context/StateContext';
-
 import SwiperSlides from '../components/SwiperSlide';
 import CreateForm from '../components/CreateForm';
 import BeautifulDnD from '../beautifulDnd/BeautifulDnD';
@@ -24,14 +23,13 @@ const Homepage = () => {
           body: JSON.stringify({
             ...formData,
             email: userData.email,
-            // completed: false,
           }),
           headers: {
             'Content-type': 'application/json',
           },
         });
         const json = await res.json();
-        console.log(json);
+        // console.log(json);
         setBoardData(json.data);
         if (json.status === 404) {
           setLoadingObj({ ...loadingObj, board: 'checked' });
@@ -65,7 +63,7 @@ const Homepage = () => {
 
 const StyledContainer = styled.div`
   padding: 10px;
-  min-height: calc(100vh - 50px);
+  min-height: calc(100vh - 68.5px);
   min-width: 100%;
   overflow: hidden;
   direction: ltr;

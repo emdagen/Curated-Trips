@@ -2,7 +2,7 @@ import { useAuth0 } from '@auth0/auth0-react';
 import styled from 'styled-components';
 const UserAccount = () => {
   const { user, isAuthenticated, isLoading } = useAuth0();
-
+  console.log(user);
   if (isLoading) {
     return <div>Loading ...</div>;
   }
@@ -11,11 +11,8 @@ const UserAccount = () => {
       {isAuthenticated && (
         <StyledUser>
           <StyledContainer>
-            <UserName>{user.name}</UserName>
-            <p>First Name: {user.given_name}</p>
-            <p>Last Name: {user.family_name}</p>
+            <UserName>{user.nickname}</UserName>
             <p>Email: {user.email}</p>
-            <p>Language Preference: {user.locale.toUpperCase()}</p>
           </StyledContainer>
         </StyledUser>
       )}
