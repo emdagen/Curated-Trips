@@ -25,6 +25,7 @@ const SwiperSlides = () => {
         navigation={true}
         modules={[Autoplay, Pagination, Navigation]}
         className='mySwiper'
+        style={{ width: '49%', height: '60%' }}
       >
         <SwiperSlide>
           <StyledContainer
@@ -37,17 +38,7 @@ const SwiperSlides = () => {
             }}
           ></StyledContainer>
         </SwiperSlide>
-        {/* <SwiperSlide>
-          <StyledContainer
-            style={{
-              backgroundImage: `url(${'https://cdn.pixabay.com/photo/2017/06/04/16/33/road-2371503_960_720.jpg'})`,
-              backgroundSize: 'cover',
-              backgroundRepeat: 'no-repeat',
-              backgroundPosition: 'center',
-              height: '600px',
-            }}
-          ></StyledContainer>
-        </SwiperSlide> */}
+
         <SwiperSlide>
           <StyledContainer
             style={{
@@ -59,20 +50,8 @@ const SwiperSlides = () => {
             }}
           ></StyledContainer>
         </SwiperSlide>
-        {/* <SwiperSlide>
-          {' '}
-          <StyledContainer
-            style={{
-              backgroundImage: `url(${'https://images.unsplash.com/photo-1567062691477-fcbc8bbdf5b1?ixlib=rb-4.0.3&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=1171&q=80'})`,
-              backgroundSize: 'cover',
-              backgroundRepeat: 'no-repeat',
-              backgroundPosition: 'center',
-              height: '600px',
-            }}
-          ></StyledContainer>
-        </SwiperSlide> */}
+
         <SwiperSlide>
-          {' '}
           <StyledContainer
             style={{
               backgroundImage: `url(${'https://images.unsplash.com/photo-1530789253388-582c481c54b0?ixlib=rb-4.0.3&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=1740&q=80'})`,
