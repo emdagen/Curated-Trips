@@ -11,6 +11,7 @@ import TextField from '@mui/material/TextField';
 import Button from '@mui/material/Button';
 import ButtonBases from './ButtonBase';
 import ButtonBases2 from './ButtonBase2';
+import { ListItem } from '@mui/material';
 
 const CreateForm = () => {
   const { setFormData, setBoardData, setUpdateDB, boardData } =
@@ -30,11 +31,15 @@ const CreateForm = () => {
   };
 
   const Item = styled(Paper)(({ theme }) => ({
-    backgroundColor: theme.palette.mode === 'dark' ? '#1A2027' : '#fff',
+    backgroundColor: theme.palette.mode === 'light' ? '#1A2027' : '#fff',
     ...theme.typography.body2,
     padding: theme.spacing(4),
     textAlign: 'center',
-    color: theme.palette.text.secondary,
+    color: theme.palette.text.light,
+    // notchedOutline: {
+    //   borderWidth: '1px',
+    //   borderColor: 'black !important',
+    // },
   }));
 
   return (
@@ -51,43 +56,60 @@ const CreateForm = () => {
             component='form'
             noValidate
             spacing={4}
+            style={{
+              opacity: '0.8',
+              backgroundColor: 'black',
+            }}
             onSubmit={(e) => handleSubmit(e)}
             sx={{
               // width: 500,
               height: 350,
+              input: { color: 'white' },
             }}
           >
-            <h1>New Adventures</h1>
-            <h2>Start a new trip</h2>
-            <p>Name :</p>
+            <StyledH1>New Adventures</StyledH1>
+            <StyledH2>Start a new trip</StyledH2>
+            <StyledLabel>Name :</StyledLabel>
 
-            <TextField
+            <StyledTextField
               autoFocus
               type='text'
-              id='outlined-required'
+              id='filled-required'
               label='Required'
               onChange={(e) => setTitle(e.target.value)}
               placeholder='Name of Adventure'
+              variant='filled'
               value={title}
+              sx={{
+                input: { color: 'black', background: 'white' },
+              }}
             />
-            <p>Number of Days :</p>
+            <StyledLabel>Number of Days :</StyledLabel>
 
-            <TextField
+            <StyledTextField
               // autoFocus
               onChange={(e) => setDuration(e.target.value)}
               placeholder='Duration of Stay'
               value={duration}
-              id='outlined-number'
-              label='Number'
+              id='filled-number'
+              label='Duration'
               type='number'
+              variant='filled'
               InputLabelProps={{
                 shrink: true,
               }}
+              sx={{
+                input: {
+                  color: 'black',
+                  background: 'white',
+                  filled: 'black',
+                },
+              }}
             />
             <div>
-              <Button variant='outlined' type='submit'>
+              <StyledButton variant='outlined' type='submit'>
                 Let's Build !
-              </Button>
+              </StyledButton>
             </div>
           </Item>
         </Grid>
@@ -102,34 +124,51 @@ const CreateForm = () => {
   );
 };
 
-// const StyledContainer = styled.div`
-//   margin-bottom: 15px;
-//   border: 2px solid purple;
-//   min-width: 600px;
-//   height: 600px;
-//   display: flex;
-//   justify-content: space-around;
-//   align-items: center;
-//   background-color: #8ec5fc;
-//   background-image: linear-gradient(
-//     62deg,
-//     #8ec5fc 7%,
-//     #d0d1c9 39%,
-//     #e8e1e1 74%
-//   );
-//   background-size: 400% 400%;
-//   animation: gradient 15s ease infinite;
-//   @keyframes gradient {
-//     0% {
-//       background-position: 0% 50%;
-//     }
-//     50% {
-//       background-position: 100% 50%;
-//     }
-//     100% {
-//       background-position: 0% 50%;
-//     }
-//   }
+// const StyledButton = styles.div`
+// margin-top: 8px;
 // `;
 
+const StyledLabel = styles.p`
+margin-top: 8px;
+margin-bottom:8px;
+font-weight:bold;
+color:white;
+`;
+const StyledH1 = styles.h1`
+color:white;
+`;
+const StyledH2 = styles.h2`
+color:white;
+`;
+
+const StyledTextField = styled(TextField)`
+  /* .MuiInputBase-root {
+    outline: 1px solid white;
+  } */
+  .css-1sumxir-MuiFormLabel-root-MuiInputLabel-root.Mui-focused,
+  .MuiInputBase-root,
+  label {
+    color: black !important;
+  }
+
+  &:hover,
+  &:focus {
+    label {
+      color: black !important;
+      transition: unset;
+    }
+    .MuiInputBase-root {
+      color: white !important;
+      outline: 2px solid black;
+    }
+  }
+  .css-15mnzpi-MuiInputBase-root-MuiFilledInput-root::after {
+    border-bottom: none !important;
+  }
+`;
+const StyledButton = styled(Button)`
+  color: white;
+  margin-top: 8px;
+  /* border: 2px solid white-space; */
+`;
 export default CreateForm;

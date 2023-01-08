@@ -25,7 +25,7 @@ const Navbar = () => {
   const [anchorElUser, setAnchorElUser] = React.useState(null);
   const { isLoading, logout } = useAuth0();
   const { userData } = useContext(StateContext);
-  console.log(userData);
+  // console.log(userData);
   const handleOpenNavMenu = (event) => {
     setAnchorElNav(event.currentTarget);
   };
@@ -44,7 +44,7 @@ const Navbar = () => {
     return <div>Loading ...</div>;
   }
   return (
-    <AppBar position='static'>
+    <AppBar position='static' sx={{ backgroundColor: 'black', opacity: '0.8' }}>
       <Container maxWidth='xl'>
         <Toolbar disableGutters>
           {/* <AdbIcon sx={{ display: { xs: 'none', md: 'flex' }, mr: 1 }} /> */}{' '}
@@ -131,7 +131,12 @@ const Navbar = () => {
           >
             Curated Trips
           </Typography>
-          <Box sx={{ flexGrow: 1, display: { xs: 'none', md: 'flex' } }}>
+          <Box
+            sx={{
+              flexGrow: 1,
+              display: { xs: 'none', md: 'flex' },
+            }}
+          >
             <NavLink to={`/`}>
               <Button
                 onClick={handleCloseNavMenu}

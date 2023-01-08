@@ -6,7 +6,7 @@ import Typography from '@mui/material/Typography';
 
 const images = [
   {
-    url: 'https://images.unsplash.com/photo-1583858665594-a83667519ac5?ixlib=rb-4.0.3&ixid=MnwxMjA3fDB8MHxzZWFyY2h8NDV8fGZlc3RpdmFsfGVufDB8MXwwfHw%3D&auto=format&fit=crop&w=500&q=60',
+    url: 'https://images.unsplash.com/photo-1579985106501-ad15fb485c57?ixlib=rb-4.0.3&ixid=MnwxMjA3fDB8MHxzZWFyY2h8MTR8fHN0cmVldCUyMHBob3RvZ3JhcGh5fGVufDB8fDB8fA%3D%3D&auto=format&fit=crop&w=500&q=60',
     title: 'Archived',
     width: '100%',
   },
