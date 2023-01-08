@@ -52,7 +52,7 @@ const Homepage = () => {
           loadingObj.board === 'checked' && (
             <StyledHome>
               <CreateForm />
-              <SwiperSlides />
+              {/* <SwiperSlides /> */}
             </StyledHome>
           )
         )}

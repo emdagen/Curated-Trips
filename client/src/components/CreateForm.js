@@ -32,7 +32,7 @@ const CreateForm = () => {
   const Item = styled(Paper)(({ theme }) => ({
     backgroundColor: theme.palette.mode === 'dark' ? '#1A2027' : '#fff',
     ...theme.typography.body2,
-    padding: theme.spacing(1),
+    padding: theme.spacing(4),
     textAlign: 'center',
     color: theme.palette.text.secondary,
   }));
@@ -47,12 +47,14 @@ const CreateForm = () => {
         </Grid>
         <Grid item xs={6}>
           <Item
+            container
             component='form'
             noValidate
+            spacing={4}
             onSubmit={(e) => handleSubmit(e)}
             sx={{
               // width: 500,
-              height: 300,
+              height: 350,
             }}
           >
             <h1>New Adventures</h1>
@@ -83,7 +85,7 @@ const CreateForm = () => {
               }}
             />
             <div>
-              <Button variant='outlined' type='submit' marginTop='10px'>
+              <Button variant='outlined' type='submit'>
                 Let's Build !
               </Button>
             </div>
