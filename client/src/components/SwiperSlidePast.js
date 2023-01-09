@@ -21,14 +21,14 @@ import ButtonBase from '@mui/material/ButtonBase';
 import Typography from '@mui/material/Typography';
 import { NavLink } from 'react-router-dom';
 
-const SwiperSlidesCurrent = () => {
-  const { userData, setCurrentTrips, currentTrips } = useContext(StateContext);
+const SwiperSlidesPast = () => {
+  const { userData, setPastTrip, pastTrip } = useContext(StateContext);
 
   const images = [
     {
       url: 'https://images.unsplash.com/photo-1604591182103-e330fb53a660?ixlib=rb-4.0.3&ixid=MnwxMjA3fDB8MHxzZWFyY2h8MTV8fHN0cmVldCUyMHBob3RvZ3JhcGh5fGVufDB8fDB8fA%3D%3D&auto=format&fit=crop&w=500&q=60',
 
-      // title: currentTrips.title,
+      // title: pastTrip.title,
       width: '100%',
     },
   ];
@@ -98,18 +98,18 @@ const SwiperSlidesCurrent = () => {
   }));
 
   useEffect(() => {
-    const getCurrentTrips = async () => {
-      const res = await fetch(`/api/currentTrips/${userData._id}`);
+    const getPastTrips = async () => {
+      const res = await fetch(`/api/pastTrips/${userData._id}`);
       const json = await res.json();
       // console.log(json);
-      setCurrentTrips(json.data);
+      setPastTrip(json.data);
     };
-    getCurrentTrips();
+    getPastTrips();
   }, []);
 
   return (
     <>
-      {currentTrips && (
+      {pastTrip && (
         <Swiper
           spaceBetween={30}
           centeredSlides={true}
@@ -125,7 +125,7 @@ const SwiperSlidesCurrent = () => {
           className='mySwiper'
           style={{ width: '49%', height: '60%' }}
         >
-          {currentTrips.map((trip) => {
+          {pastTrip.map((trip) => {
             return (
               <SwiperSlide>
                 <StyledContainer>
@@ -161,7 +161,7 @@ const SwiperSlidesCurrent = () => {
                               pb: (theme) => `calc(${theme.spacing(1)} + 6px)`,
                             }}
                           >
-                            <StyledNavLink to={`/details/${trip._id}`}>
+                            <StyledNavLink to={`/archived/${trip._id}`}>
                               <p>{trip.title}</p>
                               <p>Duration: {trip.days} Day(s)</p>
                             </StyledNavLink>
@@ -186,4 +186,4 @@ const StyledNavLink = styles(NavLink)`
 text-decoration:none;
 color: white;
 `;
-export default SwiperSlidesCurrent;
+export default SwiperSlidesPast;

@@ -32,7 +32,7 @@ const StyledCurrentTrips = styled.div`
   /* border: 2px solid blue; */
   min-height: calc(100vh - 50px);
   min-width: 100vw;
-  background-color: #afdbf5;
+  /* background-color: #afdbf5; */
 `;
 
 const StyledHead = styled.h2`
