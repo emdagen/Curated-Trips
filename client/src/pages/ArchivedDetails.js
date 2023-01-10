@@ -6,12 +6,13 @@ import styled from 'styled-components';
 import { Cloudinary } from '@cloudinary/url-gen';
 import Day from '../components/Day';
 import ArchivedDay from '../components/ArchivedDay';
+import SwiperCloudinarySlide from '../components/SwiperSlideCloudinary';
 
 const ArchivedDetails = () => {
   const { pastTrip } = useContext(StateContext);
   const [archivedDetail, setArchivedDetail] = useState(null);
   const [commentsObj, setCommentsObj] = useState(null);
-  console.log(archivedDetail);
+  // console.log(archivedDetail);
 
   const { _id } = useParams();
 
@@ -26,7 +27,7 @@ const ArchivedDetails = () => {
     const getArchivedTrip = async () => {
       const res = await fetch(`/api/archived-trip/${_id}`);
       const json = await res.json();
-      console.log(json);
+      // console.log(json);
       setArchivedDetail(json.data);
     };
     getArchivedTrip();
@@ -45,17 +46,7 @@ const ArchivedDetails = () => {
           <StyledH3>
             <StyledH2>Image Gallery</StyledH2>
           </StyledH3>
-          <StyledGallery>
-            {archivedDetail.images &&
-              archivedDetail.images.map((image) => {
-                return (
-                  <div>
-                    <StyledImage key={image} src={image} />
-                  </div>
-                );
-              })}
-          </StyledGallery>
-
+          <SwiperCloudinarySlide />
           <StyledDayContainer>
             {archivedDetail &&
               archivedDetail.arrayOfDays.map((day, index) => {
@@ -63,7 +54,7 @@ const ArchivedDetails = () => {
                 const commentsArray =
                   archivedDetail.comments && archivedDetail.comments[column];
                 // console.log(archivedDetail);
-                console.log(commentsArray);
+                // console.log(commentsArray);
                 return (
                   <ArchivedDay
                     day={day}
@@ -80,30 +71,12 @@ const ArchivedDetails = () => {
 };
 
 const StyledPastTrip = styled.div`
-  display: flex;
+  /* display: flex;
   flex-direction: column;
   gap: 50px;
-  background-color: #6d98ba;
-  min-height: calc(100vh - 50px);
-  padding-bottom: 30px;
-`;
-
-const StyledImage = styled.img`
-  min-width: 250;
-  height: 300px;
-  padding-right: 10px;
-`;
-
-const StyledGallery = styled.div`
-  /* border: 2px double black; */
-  /* display: flex;
-  justify-content: space-around;
-  padding: 10px; */
-  display: flex;
-  justify-content: center;
-  align-items: center;
-  margin-top: 20px;
-  margin-bottom: 20px;
+  background-color: #6d98ba; */
+  min-height: calc(100vh - 68.5px);
+  /* padding-bottom: 30px; */
 `;
 
 const StyledDayContainer = styled.div`
