@@ -1,5 +1,9 @@
-import { Autoplay, Pagination, Navigation } from 'swiper';
-import styled from 'styled-components';
+import React, { useEffect, useState } from 'react';
+import { useParams } from 'react-router-dom';
+import { useContext } from 'react';
+import { StateContext } from '../context/StateContext';
+import { Cloudinary } from '@cloudinary/url-gen';
+// Import Swiper React components
 import { Swiper, SwiperSlide } from 'swiper/react';
 import 'swiper/swiper-bundle.min.css';
 
@@ -7,65 +11,69 @@ import 'swiper/swiper-bundle.min.css';
 import 'swiper/css';
 import 'swiper/css/pagination';
 import 'swiper/css/navigation';
-import 'swiper/css/autoplay';
 
-const SwiperSlides = () => {
+// import required modules
+import { Pagination, Navigation } from 'swiper';
+import styled from 'styled-components';
+
+const SwiperSlideCurrent = () => {
+  const { tripDetails, setTripDetails, imageArray, setImageArray } =
+    useContext(StateContext);
+
+  const { _id } = useParams();
+  const cld = new Cloudinary({
+    cloud: {
+      cloudName: 'curatedtrips',
+    },
+  });
+  // console.log(imageArray);
+  useEffect(() => {
+    const fetchHandler = async () => {
+      const res = await fetch(`/api/detail/${_id}`);
+      const json = await res.json();
+      setImageArray(json.data.images);
+      // console.log(json.data);
+    };
+    fetchHandler();
+  }, [_id]);
+
   return (
     <>
-      <Swiper
-        spaceBetween={30}
-        centeredSlides={true}
-        autoplay={{
-          delay: 2500,
-          disableOnInteraction: false,
-        }}
-        pagination={{
-          clickable: true,
-        }}
-        navigation={true}
-        modules={[Autoplay, Pagination, Navigation]}
-        className='mySwiper'
-        style={{ width: '49%', height: '60%' }}
-      >
-        <SwiperSlide>
-          <StyledContainer
-            style={{
-              backgroundImage: `url(${'https://images.unsplash.com/photo-1505228395891-9a51e7e86bf6?ixlib=rb-4.0.3&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=2066&q=80'})`,
-              backgroundSize: 'cover',
-              backgroundRepeat: 'no-repeat',
-              backgroundPosition: 'center top',
-              height: '600px',
-            }}
-          ></StyledContainer>
-        </SwiperSlide>
-
-        <SwiperSlide>
-          <StyledContainer
-            style={{
-              backgroundImage: `url(${'https://images.unsplash.com/photo-1470218091926-22a08a325802?ixlib=rb-4.0.3&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=2066&q=80'})`,
-              backgroundSize: 'cover',
-              backgroundRepeat: 'no-repeat',
-              backgroundPosition: 'center',
-              height: '600px',
-            }}
-          ></StyledContainer>
-        </SwiperSlide>
-
-        <SwiperSlide>
-          <StyledContainer
-            style={{
-              backgroundImage: `url(${'https://images.unsplash.com/photo-1530789253388-582c481c54b0?ixlib=rb-4.0.3&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=1740&q=80'})`,
-              backgroundSize: 'cover',
-              backgroundRepeat: 'no-repeat',
-              backgroundPosition: 'center',
-              height: '600px',
-            }}
-          ></StyledContainer>
-        </SwiperSlide>
-      </Swiper>
+      {imageArray && (
+        <StyledSwiper
+          slidesPerView={3}
+          spaceBetween={30}
+          slidesPerGroup={3}
+          loop={true}
+          loopFillGroupWithBlank={true}
+          pagination={{
+            clickable: true,
+          }}
+          navigation={true}
+          modules={[Pagination, Navigation]}
+          className='mySwiper'
+        >
+          {imageArray &&
+            imageArray.map((image) => {
+              console.log(image);
+              return <StyledImage key={image} image={image}></StyledImage>;
+            })}
+        </StyledSwiper>
+      )}
     </>
   );
 };
+const StyledImage = styled(SwiperSlide)`
+  width: 100%;
+  min-height: 400px;
+  background-color: grey;
+  background-image: url(${(props) => props.image});
+  background-repeat: no-repeat;
+  background-position: center center;
+  background-size: 100% 100%;
+`;
+const StyledSwiper = styled(Swiper)`
+  margin: 24px;
+`;
 
-const StyledContainer = styled.div``;
-export default SwiperSlides;
+export default SwiperSlideCurrent;

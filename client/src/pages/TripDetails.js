@@ -7,6 +7,7 @@ import UploadWidget from '../components/UploadWidget';
 import { Cloudinary } from '@cloudinary/url-gen';
 import Day from '../components/Day';
 import EndAdventure from '../components/EndAdventure';
+import SwiperSlideCurrent from '../components/SwiperSlide';
 
 const TripDetails = () => {
   const {
@@ -19,7 +20,7 @@ const TripDetails = () => {
     imageArray,
     setImageArray,
   } = useContext(StateContext);
-
+  // console.log(imageArray);
   const { _id } = useParams();
   const cld = new Cloudinary({
     cloud: {
@@ -49,20 +50,16 @@ const TripDetails = () => {
             <StyledHead>{tripDetails.title}</StyledHead>
             <StyledDuration>Duration: {tripDetails.days} Day(s)</StyledDuration>
             <StyledGallery>Image Gallery</StyledGallery>
-            <TripGallery>
-              {tripDetails && imageArray === 0 ? (
-                <StyledNoImg>*Currently No Images*</StyledNoImg>
-              ) : (
-                imageArray &&
-                imageArray.map((image) => {
-                  console.log(image);
-                  return <StyledImage key={image} src={image} />;
-                })
-              )}
-              <StyledWidgetContainer>
-                <UploadWidget />
-              </StyledWidgetContainer>{' '}
-            </TripGallery>
+            {/* <TripGallery> */}
+            {tripDetails && imageArray === 0 ? (
+              <StyledNoImg>*Currently No Images*</StyledNoImg>
+            ) : (
+              <SwiperSlideCurrent />
+            )}
+            <StyledWidgetContainer>
+              <UploadWidget />
+            </StyledWidgetContainer>{' '}
+            {/* </TripGallery> */}
             <StyledDayContainer>
               {dayDetails.length &&
                 dayDetails.map((day, index) => {
@@ -87,7 +84,7 @@ const TripDetails = () => {
 
 const StyledContainer = styled.div`
   width: 100vw;
-  min-height: calc(100vh - 50px);
+  min-height: calc(100vh - 68.5px);
   background-color: #6d98ba;
 `;
 
