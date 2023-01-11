@@ -26,9 +26,7 @@ const SwiperSlidesCurrent = () => {
 
   const images = [
     {
-      url: 'https://images.unsplash.com/photo-1604591182103-e330fb53a660?ixlib=rb-4.0.3&ixid=MnwxMjA3fDB8MHxzZWFyY2h8MTV8fHN0cmVldCUyMHBob3RvZ3JhcGh5fGVufDB8fDB8fA%3D%3D&auto=format&fit=crop&w=500&q=60',
-
-      // title: currentTrips.title,
+      url: 'https://images.unsplash.com/photo-1583353858816-0b5850f04adf?ixlib=rb-4.0.3&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=1074&q=80',
       width: '100%',
     },
   ];
@@ -162,8 +160,8 @@ const SwiperSlidesCurrent = () => {
                             }}
                           >
                             <StyledNavLink to={`/details/${trip._id}`}>
-                              <p>{trip.title}</p>
-                              <p>Duration: {trip.days} Day(s)</p>
+                              <h2>{trip.title}</h2>
+                              <h3>Duration: {trip.days} Day(s)</h3>
                             </StyledNavLink>
                             <ImageMarked className='MuiImageMarked-root' />
                           </Typography>

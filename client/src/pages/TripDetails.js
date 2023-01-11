@@ -83,14 +83,14 @@ const TripDetails = () => {
 };
 
 const StyledContainer = styled.div`
-  width: 100vw;
+  /* width: 100vw; */
   min-height: calc(100vh - 68.5px);
   background-color: #6d98ba;
 `;
 
 const StyledHead = styled.h2`
   text-align: center;
-  padding: 30px 10px 10px 10px;
+  /* padding: 30px 10px 10px 10px; */
   font-size: 35px;
   color: black;
   letter-spacing: 3px;
@@ -103,32 +103,18 @@ const StyledDuration = styled.p`
 `;
 
 const StyledDayContainer = styled.div`
-  margin: auto;
-  padding: 10px;
+  /* margin: auto; */
+  /* padding: 5px; */
   /* border: 2px solid orange; */
   display: grid;
-  grid-template-columns: 2fr 2fr 2fr 2fr;
-  gap: 16px;
-  max-width: 1900px;
-  place-items: center;
-  height: 100%;
-`;
-
-const TripGallery = styled.div`
-  /* border: 2px solid white; */
-  /* background-color: white; */
-  display: flex;
-  justify-content: center;
-  align-items: center;
-  margin-top: 20px;
-  margin-bottom: 20px;
-`;
-
-const StyledImage = styled.img`
-  /* padding: 10px; */
-  min-width: 250;
-  height: 300px;
-  padding-right: 10px;
+  grid-template-columns: 2fr 2fr 2fr;
+  gap: 24px;
+  /* max-width: 1900px;
+  place-items: center; */
+  /* height: 100%; */
+  margin-left: 50px;
+  /* padding: 5px; */
+  min-width: 350px;
 `;
 
 const StyledGallery = styled.h3`
