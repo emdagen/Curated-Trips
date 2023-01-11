@@ -82,10 +82,11 @@ const StyledPastTrip = styled.div`
 const StyledDayContainer = styled.div`
   margin-left: 50px;
   padding: 5px;
+  min-width: 350px;
   /* border: 2px solid purple; */
   display: grid;
-  grid-template-columns: 2fr 2fr 2fr 2fr;
-  gap: 16px;
+  grid-template-columns: 2fr 2fr 2fr;
+  gap: 24px;
   /* place-items: center; */
   /* display: flex;
   justify-content: space-around; */
