@@ -72,6 +72,7 @@ const UploadWidget = ({ index }) => {
 const StyledUploadBtn = styled.button`
   display: inline-block;
   padding: 0.35em 1.2em;
+  margin-bottom: 8px;
   border: 0.2em solid #d6ccc2;
   border-radius: 0.12em;
   box-sizing: border-box;

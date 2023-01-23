@@ -52,7 +52,6 @@ const Homepage = () => {
           loadingObj.board === 'checked' && (
             <StyledHome>
               <CreateForm />
-              {/* <SwiperSlides /> */}
             </StyledHome>
           )
         )}
@@ -69,8 +68,6 @@ const StyledContainer = styled.div`
   direction: ltr;
   display: flex;
   justify-content: flex-start;
-  /* background-color: #00538c; */
-  /* background-image: url('https://images.unsplash.com/photo-1625921765718-40e14ee8641c?ixlib=rb-4.0.3&ixid=MnwxMjA3fDB8MHxzZWFyY2h8M3x8c3RyZWV0JTIwcGhvdG9ncmFwaHl8ZW58MHwwfDB8fA%3D%3D&auto=format&fit=crop&w=400&q=60'); */
   background-image: url('https://images.unsplash.com/photo-1635425291944-e70310e8510b?ixlib=rb-4.0.3&ixid=MnwxMjA3fDB8MHxzZWFyY2h8MTE4fHxzdHJlZXQlMjBwaG90b2dyYXBoeXxlbnwwfDB8MHxibGFja19hbmRfd2hpdGV8&auto=format&fit=crop&w=500&q=60');
   /* background-size: cover; */
   /* background-position: center; */

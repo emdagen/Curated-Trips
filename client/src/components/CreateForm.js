@@ -124,9 +124,6 @@ const CreateForm = () => {
   );
 };
 
-// const StyledButton = styles.div`
-// margin-top: 8px;
-// `;
 
 const StyledLabel = styles.p`
 margin-top: 8px;

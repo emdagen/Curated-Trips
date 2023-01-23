@@ -99,9 +99,10 @@ const StyledTitle = styled.div`
   flex-direction: column;
   justify-content: center;
   align-items: center;
+  gap: 8px;
 `;
 
-const StyledH3 = styled.h3`
+const StyledH3 = styled.div`
   /* border: 2px solid pink; */
   display: flex;
   justify-content: center;
@@ -123,6 +124,7 @@ const StyledH2 = styled.h2`
   font-size: 25px;
   padding: 7px;
   border: 3px double black;
+  margin-top: 8px;
 `;
 
 export default ArchivedDetails;
