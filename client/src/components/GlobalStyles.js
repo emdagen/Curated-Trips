@@ -8,13 +8,17 @@ const GlobalStyles = createGlobalStyle`
 }
 
 body{
-  font-family: 'Lobster', cursive, 'sans-serif';
+  font-family: 'Roboto Mono', monospace;
   color:black;
 }
     a {
     text-decoration: none;
   }
+h1, h2, h3, h4 {
+  font-family: 'Space Mono', monospace;
 
+  /* color:black; */
+} 
 button{
   font-family: 'Lobster', cursive, 'sans-serif';
   letter-spacing:1px;

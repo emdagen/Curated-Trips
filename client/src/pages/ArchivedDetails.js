@@ -77,6 +77,7 @@ const StyledPastTrip = styled.div`
   background-color: #6d98ba; */
   min-height: calc(100vh - 68.5px);
   /* padding-bottom: 30px; */
+  background-color: #e0e0e0;
 `;
 
 const StyledDayContainer = styled.div`

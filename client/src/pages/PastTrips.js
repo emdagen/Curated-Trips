@@ -34,7 +34,7 @@ const StyledPastTrips = styled.div`
   /* border: 2px solid blue; */
   min-height: calc(100vh - 50px);
   /* min-width: 100vw; */
-  /* background-color: #afdbf5; */
+  background-color: #e0e0e0;
 `;
 
 const StyledHead = styled.h2`

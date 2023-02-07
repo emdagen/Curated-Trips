@@ -30,6 +30,7 @@ const CurrentTrip = () => {
 
 const StyledCurrentTrips = styled.div`
   min-height: calc(100vh - 50px);
+  background-color: #e0e0e0;
 `;
 
 const StyledHead = styled.h2`

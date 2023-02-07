@@ -115,6 +115,7 @@ const StyledDayContainer = styled.div`
   margin-left: 50px;
   /* padding: 5px; */
   min-width: 350px;
+  background-color: #e0e0e0;
 `;
 
 const StyledGallery = styled.h3`
