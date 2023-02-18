@@ -3,6 +3,8 @@ import { useContext, useState } from 'react';
 import { StateContext } from '../context/StateContext';
 import { useParams } from 'react-router';
 import AddComment from './AddComment';
+import IconButton from '@mui/material/IconButton';
+import { BiEditAlt, BiSave } from 'react-icons/bi';
 
 const ActivityType = ({ activity, dayId }) => {
   const [formData, setFormData] = useState(activity);
@@ -108,28 +110,35 @@ const ActivityType = ({ activity, dayId }) => {
               value={formData.cost}
             />
           </StyledActivity>
+
           <StyledBtnContainer>
-            <StyledBtn
+            <IconButton
+              size='large'
               onClick={() => {
                 setToggleForm(!toggleForm);
               }}
+              color='inherit'
             >
-              Edit
-            </StyledBtn>
-            <StyledBtn type='submit'>Save</StyledBtn>
+              <BiEditAlt />
+            </IconButton>
+            <IconButton size='large' color='inherit' type='submit'>
+              <BiSave />
+            </IconButton>
           </StyledBtnContainer>
         </StyledForm>
       )}
 
       {!toggleForm && (
         <StyledEditBtnContainer>
-          <StyledBtn
+          <IconButton
+            size='large'
             onClick={() => {
               setToggleForm(!toggleForm);
             }}
+            color='inherit'
           >
-            Edit
-          </StyledBtn>
+            <BiEditAlt />
+          </IconButton>
         </StyledEditBtnContainer>
       )}
     </StyledContainer>

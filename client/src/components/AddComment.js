@@ -1,7 +1,11 @@
 import { useState, useContext } from 'react';
 import { useParams } from 'react-router-dom';
-import styled from 'styled-components';
 import { StateContext } from '../context/StateContext';
+import IconButton from '@mui/material/IconButton';
+import Stack from '@mui/material/Stack';
+import Button from '@mui/material/Button';
+import { BiCommentCheck } from 'react-icons/bi';
+
 const AddComment = ({
   day,
   column,
@@ -56,51 +60,33 @@ const AddComment = ({
             name='comment'
             placeholder='Add your tips & tricks here ...'
           ></textarea>
-          <StyledAddComment type='submit'>Post Comment</StyledAddComment>
+          <IconButton size='large' type='submit' color='inherit'>
+            <BiCommentCheck />
+          </IconButton>
         </form>
       )}
-
-      <StyledAddComment
-        onClick={() => {
-          setToggleForm(!toggleForm);
-        }}
-      >
-        Add Comment
-      </StyledAddComment>
-
-      {commentsArray && commentsArray.length !== 0 && (
-        <StyledAddComment
+      <Stack spacing={2} direction='row'>
+        <Button
+          variant='outlined'
           onClick={() => {
-            setToggleShow(!toggleShow);
+            setToggleForm(!toggleForm);
           }}
         >
-          Show Comment(s)
-        </StyledAddComment>
-      )}
+          Add Comment
+        </Button>
+        {commentsArray && commentsArray.length !== 0 && (
+          <Button
+            variant='outlined'
+            onClick={() => {
+              setToggleShow(!toggleShow);
+            }}
+          >
+            Show Comment(s)
+          </Button>
+        )}{' '}
+      </Stack>
     </div>
   );
 };
-
-const StyledAddComment = styled.button`
-  display: inline-block;
-  padding: 0.35em 1.2em;
-  border: 0.2em solid #d6ccc2;
-  border-radius: 0.12em;
-  box-sizing: border-box;
-  text-decoration: none;
-  color: #d6ccc2;
-  text-align: center;
-  transition: all 0.2s;
-  font-weight: 600;
-  font-size: 15px;
-  box-shadow: rgba(0, 0, 0, 0.24) 0px 3px 8px;
-  :hover {
-    color: #000000;
-    background-color: #ffffff;
-  }
-  margin-top: 5px;
-  margin-right: 5px;
-  width: 120px;
-`;
 
 export default AddComment;

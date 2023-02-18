@@ -95,4 +95,5 @@ const StyledButtons = styled.div`
   bottom: 10px;
   right: 10px;
 `;
+
 export default BeautifulDnD;

@@ -85,7 +85,7 @@ const TripDetails = () => {
 const StyledContainer = styled.div`
   /* width: 100vw; */
   min-height: calc(100vh - 68.5px);
-  background-color: #6d98ba;
+  background-color: #e0e0e0;
 `;
 
 const StyledHead = styled.h2`

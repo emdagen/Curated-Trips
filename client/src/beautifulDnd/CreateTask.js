@@ -2,7 +2,8 @@ import React, { useState, useContext } from 'react';
 import styled from 'styled-components';
 import uuid from 'react-uuid';
 import { StateContext } from '../context/StateContext';
-import { Keyframes } from 'styled-components';
+import Button from '@mui/material/Button';
+
 //Makes the activity cards
 const CreateTask = () => {
   const { boardData, setBoardData, updateDB, setUpdateDB } =
@@ -14,6 +15,7 @@ const CreateTask = () => {
   const [cost, setCost] = useState('');
 
   //Creates Card and adds to Activity Column & Updates MongoDB
+
   const handleSubmit = async (e) => {
     e.preventDefault();
     e.stopPropagation();
@@ -54,7 +56,7 @@ const CreateTask = () => {
   return (
     <StyledCreate>
       <form onSubmit={handleSubmit}>
-        <StyledDescription>Select your Card Type:</StyledDescription>
+        <StyledDescription> Card Type:</StyledDescription>
         <StyledSelect
           value={activity}
           onChange={(e) => setActivity(e.target.value)}
@@ -85,10 +87,12 @@ const CreateTask = () => {
         <StyledInput
           type='number'
           onChange={(e) => setCost(e.target.value)}
-          placeholder='Please enter the cost'
+          placeholder='The estimated cost'
           value={cost}
         />
-        <SubmitBtn type='submit'>Create Activity</SubmitBtn>
+        <Button variant='outlined' type='submit' sx={{ color: 'black' }}>
+          Create Activity
+        </Button>
       </form>
     </StyledCreate>
   );
@@ -114,49 +118,11 @@ const StyledCreate = styled.div`
     flex-direction: column;
     gap: 16px;
     padding: 48px;
-    /* background-image: url('https://images.unsplash.com/photo-1654339394814-0240ba7beea9?ixlib=rb-4.0.3&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=774&q=80');
-    background-repeat: no-repeat;
-    background-size: cover; */
     background-color: #72a0c1;
     color: black;
-    border-radius: 8%;
+    border-radius: 10px;
     box-shadow: rgba(0, 0, 0, 0.19) 0px 10px 20px,
       rgba(0, 0, 0, 0.23) 0px 6px 6px;
-  }
-`;
-
-const SubmitBtn = styled.button`
-  margin-top: 10px;
-  text-decoration: none;
-  height: 30px;
-  border-radius: 10px;
-  border: 1px solid rgb(146, 148, 248);
-  position: relative;
-  overflow: hidden;
-  background-color: #005a9c;
-  /* letter-spacing: 1px; */
-  color: white;
-
-  :hover {
-    box-shadow: 1px 1px 25px 10px rgba(146, 148, 248, 0.4);
-  }
-  :before {
-    content: '';
-    position: absolute;
-    top: 0;
-    left: -100%;
-    width: 100%;
-    height: 100%;
-    background: linear-gradient(
-      120deg,
-      transparent,
-      rgba(146, 148, 248, 0.4),
-      transparent
-    );
-    transition: all 650ms;
-  }
-  :hover:before {
-    left: 100%;
   }
 `;
 
@@ -165,7 +131,7 @@ const StyledDescription = styled.h3`
 `;
 
 const StyledInput = styled.input`
-  height: 30px;
+  height: 40px;
 `;
 
 const StyledSelect = styled.select`

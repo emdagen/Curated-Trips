@@ -2,7 +2,8 @@ import styled from 'styled-components';
 import { useAuth0 } from '@auth0/auth0-react';
 import { StateContext } from '../context/StateContext';
 import { useContext } from 'react';
-// import { BiLogOut, BiUser } from 'react-icons/bi';
+
+import { BiMenu } from 'react-icons/bi';
 import * as React from 'react';
 import AppBar from '@mui/material/AppBar';
 import Box from '@mui/material/Box';
@@ -75,7 +76,7 @@ const Navbar = () => {
               onClick={handleOpenNavMenu}
               color='inherit'
             >
-              {/* <MenuIcon /> */} <p>menu</p>
+              <BiMenu size={50} />
             </IconButton>
             <Menu
               id='menu-appbar'
@@ -97,17 +98,23 @@ const Navbar = () => {
             >
               <MenuItem onClick={handleCloseNavMenu}>
                 <NavLink to={`/`}>
-                  <Typography textAlign='center'>Create</Typography>
+                  <Typography textAlign='center' sx={{ color: 'black' }}>
+                    Create
+                  </Typography>
                 </NavLink>
               </MenuItem>
               <MenuItem onClick={handleCloseNavMenu}>
                 <NavLink to={`/current`}>
-                  <Typography textAlign='center'>Current</Typography>
+                  <Typography textAlign='center' sx={{ color: 'black' }}>
+                    Current
+                  </Typography>
                 </NavLink>
               </MenuItem>
               <MenuItem onClick={handleCloseNavMenu}>
                 <NavLink to={`/archived`}>
-                  <Typography textAlign='center'>Archived</Typography>
+                  <Typography textAlign='center' sx={{ color: 'black' }}>
+                    Archived
+                  </Typography>
                 </NavLink>
               </MenuItem>
             </Menu>

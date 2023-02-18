@@ -2,6 +2,7 @@ import { useContext, useEffect, useRef, useState } from 'react';
 import { useParams } from 'react-router-dom';
 import styled from 'styled-components';
 import { StateContext } from '../context/StateContext';
+import Button from '@mui/material/Button';
 
 const UploadWidget = ({ index }) => {
   const cloudinaryRef = useRef();
@@ -29,6 +30,7 @@ const UploadWidget = ({ index }) => {
       function (error, result) {
         if (!error && result && result.event === 'success') {
           // console.log(result);
+
           //POST that sends img url/data to backend
           const uploadImg = async () => {
             // console.log('hello');
@@ -58,14 +60,25 @@ const UploadWidget = ({ index }) => {
   }, [toggle]);
 
   return (
-    <StyledUploadBtn
+    // <StyledUploadBtn
+    //   onClick={() => {
+    //     widgetRef.current.open();
+    //     setToggle(true);
+    //   }}
+    // >
+    //   Upload Image
+    // </StyledUploadBtn>
+    <Button
+      variant='outlined'
       onClick={() => {
         widgetRef.current.open();
         setToggle(true);
       }}
+      sx={{ mb: 3 }}
     >
+      {' '}
       Upload Image
-    </StyledUploadBtn>
+    </Button>
   );
 };
 
