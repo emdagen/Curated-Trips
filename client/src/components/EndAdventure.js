@@ -8,28 +8,28 @@ const EndAdventure = () => {
 
   // DELETE that removes trip from CurrentTrip Collection //
 
-  // const handleRemove = async () => {
-  //   try {
-  //     const res = await fetch(`/api/archive-trip/${_id}`, {
-  //       method: 'DELETE',
-  //     });
-  //     const json = await res.json();
-  //     console.log(json);
-  //     navigate(`/archived`);
-  //   } catch (err) {
-  //     console.log(err);
-  //   }
-  // };
-  // return (
-  //   <StyledBtnContainer>
-  //     <Button
-  //       variant='outlined'
-  //       onClick={handleRemove}
-  //       size={'large'}
-  //       // sx={{ border: 'black' }}
-  //     >
-  //       End Adventure
-  //     </Button>
+  const handleRemove = async () => {
+    try {
+      const res = await fetch(`/api/archive-trip/${_id}`, {
+        method: 'DELETE',
+      });
+      const json = await res.json();
+      console.log(json);
+      navigate(`/archived`);
+    } catch (err) {
+      console.log(err);
+    }
+  };
+  return (
+    <StyledBtnContainer>
+      <Button
+        variant='outlined'
+        onClick={handleRemove}
+        size={'large'}
+        // sx={{ border: 'black' }}
+      >
+        End Adventure
+      </Button>
 
       {/* <StyledEndBtn onClick={handleRemove}>End Adventure</StyledEndBtn> */}
 
