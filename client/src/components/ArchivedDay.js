@@ -43,17 +43,17 @@ const ArchivedDay = ({ day, index, commentsArray }) => {
 };
 export default ArchivedDay;
 
-// const StyledDay = styled.div`
-//   /* border: 2px solid green; */
-//   border-radius: 10px;
-//   box-shadow: rgba(0, 0, 0, 0.24) 0px 3px 8px;
-//   min-height: 500px;
-//   width: 400px;
-//   display: flex;
-//   flex-direction: column;
-//   padding: 16px;
-//   background-color: #c5d5e4;
-// `;
+const StyledDay = styled.div`
+  /* border: 2px solid green; */
+  border-radius: 10px;
+  box-shadow: rgba(0, 0, 0, 0.24) 0px 3px 8px;
+  min-height: 500px;
+  width: 400px;
+  display: flex;
+  flex-direction: column;
+  padding: 16px;
+  background-color: #c5d5e4;
+`;
 
 const StyledNumDay = styled.h3`
   font-size: 25px;
