@@ -1,11 +1,11 @@
-import { useContext } from 'react';
-import { StateContext } from '../context/StateContext';
+// import { useContext } from 'react';
+// import { StateContext } from '../context/StateContext';
 import styled from 'styled-components';
 import { format, parseISO } from 'date-fns';
 import ArchivedActivity from './ArchivedActivity';
 
 const ArchivedDay = ({ day, index, commentsArray }) => {
-  const { setCommentsObj } = useContext(StateContext);
+  // const { setCommentsObj } = useContext(StateContext);
   let dateFormatted;
 
   return (
