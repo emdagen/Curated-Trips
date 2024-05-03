@@ -69,9 +69,6 @@ const StyledContainer = styled.div`
   display: flex;
   justify-content: flex-start;
   background-image: url('https://images.unsplash.com/photo-1635425291944-e70310e8510b?ixlib=rb-4.0.3&ixid=MnwxMjA3fDB8MHxzZWFyY2h8MTE4fHxzdHJlZXQlMjBwaG90b2dyYXBoeXxlbnwwfDB8MHxibGFja19hbmRfd2hpdGV8&auto=format&fit=crop&w=500&q=60');
-  /* background-size: cover; */
-  /* background-position: center; */
-  /* overflow: hidden; */
 `;
 const StyledMain = styled.div`
   display: flex;
@@ -79,9 +76,6 @@ const StyledMain = styled.div`
   justify-content: space-evenly;
   width: 100%;
   min-height: 100%;
-  /* border: 3px solid orange; */
 `;
-const StyledHome = styled.div`
-  /* display: flex; */
-`;
+const StyledHome = styled.div``;
 export default Homepage;

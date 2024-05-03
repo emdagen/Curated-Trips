@@ -71,12 +71,7 @@ const ArchivedDetails = () => {
 };
 
 const StyledPastTrip = styled.div`
-  /* display: flex;
-  flex-direction: column;
-  gap: 50px;
-  background-color: #6d98ba; */
   min-height: calc(100vh - 68.5px);
-  /* padding-bottom: 30px; */
   background-color: #e0e0e0;
 `;
 
@@ -84,13 +79,9 @@ const StyledDayContainer = styled.div`
   margin-left: 50px;
   padding: 5px;
   min-width: 350px;
-  /* border: 2px solid purple; */
   display: grid;
   grid-template-columns: 2fr 2fr 2fr;
   gap: 24px;
-  /* place-items: center; */
-  /* display: flex;
-  justify-content: space-around; */
 `;
 
 const StyledTitle = styled.div`
