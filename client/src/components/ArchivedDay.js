@@ -44,7 +44,6 @@ const ArchivedDay = ({ day, index, commentsArray }) => {
 export default ArchivedDay;
 
 const StyledDay = styled.div`
-  /* border: 2px solid green; */
   border-radius: 10px;
   box-shadow: rgba(0, 0, 0, 0.24) 0px 3px 8px;
   min-height: 500px;

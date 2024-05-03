@@ -103,24 +103,16 @@ const StyledDuration = styled.p`
 `;
 
 const StyledDayContainer = styled.div`
-  /* margin: auto; */
-  /* padding: 5px; */
-  /* border: 2px solid orange; */
   display: grid;
   grid-template-columns: 2fr 2fr 2fr;
   gap: 24px;
-  /* max-width: 1900px;
-  place-items: center; */
-  /* height: 100%; */
   margin-left: 50px;
-  /* padding: 5px; */
   min-width: 350px;
   background-color: #e0e0e0;
 `;
 
 const StyledGallery = styled.h3`
   text-align: center;
-  /* margin-top: 20px; */
   margin-bottom: 30px;
   font-size: 25px;
 `;

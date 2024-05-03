@@ -24,7 +24,6 @@ const ArchivedActivity = ({ activity, dayId }) => {
 };
 
 const StyledActivity = styled.div`
-  /* border: 2px solid red; */
   padding-left: 10px;
   gap: 16px;
   margin-bottom: 16px;
@@ -38,12 +37,7 @@ const StyledBold = styled.span`
   letter-spacing: 1px;
 `;
 
-const StyledContainer = styled.div`
-  /* border: 2px solid blue;
-  display: flex;
-  flex-direction: column;
-  justify-content: space-between; */
-`;
+const StyledContainer = styled.div``;
 
 const StyledRes = styled.div`
   font-size: 20px;

@@ -81,7 +81,6 @@ const Day = ({ day, index, commentsArray }) => {
 export default Day;
 
 const StyledDay = styled.div`
-  /* border: 2px solid green; */
   border-radius: 10px;
   box-shadow: rgba(0, 0, 0, 0.24) 0px 3px 8px;
   min-height: 200px;
@@ -99,9 +98,7 @@ const StyledNumDay = styled.h3`
   text-align: center;
 `;
 
-const StyledTop = styled.div`
-  /* border: 2px solid turquoise; */
-`;
+const StyledTop = styled.div``;
 
 const StyledComment = styled.div`
   background-color: white;
@@ -114,9 +111,7 @@ const StyledPlan = styled.h3`
   font-size: 20px;
   padding-bottom: 10px;
 `;
-const StyledActivity = styled.div`
-  /* border: 5px solid orange; */
-`;
+
 const StyledDate = styled.p`
   font-size: 15px;
 `;

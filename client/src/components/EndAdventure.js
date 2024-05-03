@@ -38,31 +38,8 @@ const EndAdventure = () => {
   );
 };
 
-// const StyledEndBtn = styled.button`
-//   display: inline-block;
-//   padding: 0.35em 1.2em;
-//   border: 0.2em solid #d6ccc2;
-//   border-radius: 0.12em;
-//   box-sizing: border-box;
-//   text-decoration: none;
-//   color: black;
-//   text-align: center;
-//   transition: all 0.2s;
-//   font-weight: 600;
-//   font-size: 20px;
-//   box-shadow: rgba(0, 0, 0, 0.24) 0px 3px 8px;
-//   :hover {
-//     color: #d6ccc2;
-//     background-color: #ffffff;
-//   }
-//   margin-top: 5px;
-//   margin-right: 5px;
-//   width: 200px;
-//   height: 80px;
-// `;
 const StyledBtnContainer = styled.div`
   margin-top: 50px;
-  /* border: 2px solid white; */
   display: flex;
   flex-direction: column;
   align-items: center;

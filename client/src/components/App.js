@@ -80,7 +80,5 @@ const App = () => {
 
 const StyledApp = styled.div`
   min-height: 100vh;
-  /* width: 100vw; */
-  /* border: 2px solid orange; */
 `;
 export default App;

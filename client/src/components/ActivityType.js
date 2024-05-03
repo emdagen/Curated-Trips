@@ -147,15 +147,11 @@ const ActivityType = ({ activity, dayId }) => {
 
 const StyledContainer = styled.div`
   margin-top: 10px;
-  /* border: 5px solid orange; */
   display: flex;
   justify-content: space-between;
-  /* flex-direction: column; */
 `;
 
 const StyledActivity = styled.div`
-  /* margin-top: 10px; */
-  /* border: 2px solid red; */
   width: 100%;
   padding-left: 10px;
   padding-bottom: 10px;
@@ -193,7 +189,6 @@ const StyledBtn = styled.button`
 `;
 
 const StyledBtnContainer = styled.div`
-  /* border: 2px solid black; */
   display: flex;
   flex-direction: column;
   gap: 16px;
@@ -202,12 +197,9 @@ const StyledBtnContainer = styled.div`
 const StyledForm = styled.form`
   margin-top: 10px;
   margin-left: 10px;
-  /* border: 2px solid blue; */
   display: flex;
   width: 100%;
   gap: 16px;
-
-  /* flex-direction: column; */
 `;
 
 const StyledEditBtnContainer = styled.div``;
